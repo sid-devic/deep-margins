@@ -1,6 +1,8 @@
 import tensorflow as tf
 import numpy as np
 import random
+import cv2
+import time
 
 # 12500 imgs of cats, 12500 imgs of dogs
 
@@ -24,9 +26,20 @@ def input_function(img_path, label):
     
     #path->image
     img_file = tf.read_file(img_path)
-    img_decoded = tf.image.decode_image(img_file, channels=3)
+    img_decoded = tf.image.decode_image(img_file)
 
     return img_decoded, one_hot
+
+def is_invalid_img(img_path):
+    """ Helper function so that we don't load invalid images into our dataset
+    """
+    checked_img = cv2.imread(DIR_PATH + img_path)
+    invalid = False
+    if checked_img is None:
+        invalid = True   
+    return invalid
+
+start = time.time()
 
 # because tf.shuffle(buffer_size) has some issues, we 
 # randomly iterate through our data ourself, to make sure it's not ordered.
@@ -43,14 +56,17 @@ for x in r:
         curr_dir = "/Dog/"
         new_x = x-12500
         img_class = 1
+    # we check if the img is a valid one, don't want bad data
+    if is_invalid_img(curr_dir + str(new_x)+".jpg"):
+        continue
     # we add data to our training set with 80% probability, otherwise it goes
     # to our val set. This is crude, will change later.
     rand_num = random.random()
     if rand_num < .8:
-        train_imgs_arr.append(DIR_PATH + curr_dir + str(new_x))
+        train_imgs_arr.append(DIR_PATH + curr_dir + str(new_x)+".jpg")
         train_labels_arr.append(int(img_class))
     else:
-        val_imgs_arr.append(DIR_PATH + curr_dir + str(new_x))
+        val_imgs_arr.append(DIR_PATH + curr_dir + str(new_x) +".jpg")
         val_labels_arr.append(int(img_class))
 
 # now we add our train and val arrs to actual tf.constants
@@ -63,9 +79,11 @@ val_labels = tf.constant(val_labels_arr)
 tr_data = tf.data.Dataset.from_tensor_slices((train_imgs, train_labels))
 val_data = tf.data.Dataset.from_tensor_slices((val_imgs, val_labels))
 
+print(len(val_labels_arr) + len(train_labels_arr))
+
 # we map our data into a readable tf format with our called function
 tr_data = tr_data.map(input_function)
-val_data = tr_data.map(input_function)
+val_data = val_data.map(input_function)
 
 # now we create our iterator
 iterator = tf.data.Iterator.from_structure(tr_data.output_types, tr_data.output_shapes)
@@ -75,6 +93,8 @@ next_element = iterator.get_next()
 # create two initialization ops to switch between the datasets
 training_init_op = iterator.make_initializer(tr_data)
 validation_init_op = iterator.make_initializer(val_data)
+
+end = time.time()
 
 with tf.Session() as sess:
 
@@ -99,8 +119,9 @@ with tf.Session() as sess:
             elem = sess.run(next_element)
             print(elem)
         except tf.errors.OutOfRangeError:
-            print("End of training dataset.")
+            print("End of validation dataset.")
             break
 
 
+print("It took " + str(end - start) + " seconds to load the data.")
 
