@@ -96,32 +96,5 @@ validation_init_op = iterator.make_initializer(val_data)
 
 end = time.time()
 
-with tf.Session() as sess:
-
-    # initialize the iterator on the training data
-    sess.run(training_init_op)
-
-    # get each element of the training dataset until the end is reached
-    while True:
-        try:
-            elem = sess.run(next_element)
-            print(elem)
-        except tf.errors.OutOfRangeError:
-            print("End of training dataset.")
-            break
-
-    # initialize the iterator on the validation data
-    sess.run(validation_init_op)
-
-    # get each element of the validation dataset until the end is reached
-    while True:
-        try:
-            elem = sess.run(next_element)
-            print(elem)
-        except tf.errors.OutOfRangeError:
-            print("End of validation dataset.")
-            break
-
-
 print("It took " + str(end - start) + " seconds to load the data.")
 
