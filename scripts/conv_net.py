@@ -50,20 +50,20 @@ def conv_net(x, n_classes, dropout, reuse, is_training):
         x = tf.reshape(x, shape=[-1, 128, 128, 1])
 
         # Convolution Layer with 32 filters and a kernel size of 5
-        conv1 = tf.layers.conv2d(x, 32, 5, activation=tf.nn.relu)
+        #conv1 = tf.layers.conv2d(x, 32, 5, activation=tf.nn.relu)
         # Max Pooling (down-sampling) with strides of 2 and kernel size of 2
-        conv1 = tf.layers.max_pooling2d(conv1, 2, 2)
+        #conv1 = tf.layers.max_pooling2d(conv1, 2, 2)
 
         # Convolution Layer with 32 filters and a kernel size of 5
-        conv2 = tf.layers.conv2d(conv1, 64, 3, activation=tf.nn.relu)
+        #conv2 = tf.layers.conv2d(conv1, 64, 3, activation=tf.nn.relu)
         # Max Pooling (down-sampling) with strides of 2 and kernel size of 2
-        conv2 = tf.layers.max_pooling2d(conv2, 2, 2)
+        #conv2 = tf.layers.max_pooling2d(conv2, 2, 2)
 
         # Flatten the data to a 1-D vector for the fully connected layer
-        fc1 = tf.contrib.layers.flatten(conv2)
+        fc1 = tf.contrib.layers.flatten(x)
 
         # Fully connected layer (in contrib folder for now)
-        fc1 = tf.layers.dense(fc1, 1024)
+        fc1 = tf.layers.dense(fc1, 128)
         # Apply Dropout (if is_training is False, dropout is not applied)
         fc1 = tf.layers.dropout(fc1, rate=dropout, training=is_training)
 
@@ -90,7 +90,7 @@ optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
 train_op = optimizer.minimize(loss_op)
 
 # Evaluate model (with test logits, for dropout to be disabled)
-correct_pred = tf.equal(tf.argmax(logits_test, 1), tf.argmax(Y, 1))
+correct_pred = tf.equal(tf.argmax(logits_test, -1), tf.argmax(Y, -1))
 accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
 # Initialize the variables (i.e. assign their default value)
@@ -109,7 +109,7 @@ for step in range(1, num_steps + 1):
     except tf.errors.OutOfRangeError:
         # Reload the iterator when it reaches the end of the dataset
         # sess.run(iterator.initializer, feed_dict={max_value: 24000})
-        sess.run(training_init_op)         
+        sess.run(training_init_op)   
         sess.run(train_op)
 
     if step % display_step == 0 or step == 1:
