@@ -27,6 +27,8 @@ def input_function(img_path, label):
     #path->image
     img_file = tf.read_file(img_path)
     img_decoded = tf.image.decode_image(img_file)
+    # cast to float32
+    img_decoded = tf.cast(img_decoded, tf.float32)
 
     return img_decoded, one_hot
 
@@ -95,6 +97,7 @@ training_init_op = iterator.make_initializer(tr_data)
 validation_init_op = iterator.make_initializer(val_data)
 
 end = time.time()
-
 print("It took " + str(end - start) + " seconds to load the data.")
+print(tr_data.output_types)
+print(tr_data.output_shapes)
 
