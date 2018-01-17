@@ -38,7 +38,8 @@ def is_invalid_img(img_path):
     checked_img = cv2.imread(DIR_PATH + img_path)
     invalid = False
     if checked_img is None:
-        invalid = True   
+        invalid = True
+        # print(DIR_PATH + img_path) # debug   
     return invalid
 
 start = time.time()

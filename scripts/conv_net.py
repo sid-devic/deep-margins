@@ -5,7 +5,7 @@ from input_pipe import tr_data, val_data, training_init_op, validation_init_op, 
 # Parameters
 learning_rate = 0.001
 num_steps = 2000
-batch_size = 128
+batch_size = 1
 display_step = 100
 
 max_value = tf.placeholder(tf.int64, shape=[])
@@ -21,9 +21,9 @@ sess = tf.Session()
 dataset = tr_data.batch(batch_size)
 
 # create an iterator
-# iterator = tf.data.Iterator.from_structure(tr_data.output_types, tr_data.output_shapes)
+iterator = tf.data.Iterator.from_structure(tr_data.output_types, tr_data.output_shapes)
 
-iterator = dataset.make_initializable_iterator()
+#iterator = dataset.make_initializable_iterator()
 
 # use 2 placeholders to avoid loading all data into memory
 _data = tf.placeholder(tf.float32, [None, n_input])
@@ -47,23 +47,23 @@ def conv_net(x, n_classes, dropout, reuse, is_training):
         # cats v dogs imgs are [128 * 128]
         # Reshape to match picture format [Height x Width x Channel]
         # Tensor input become 4-D: [Batch Size, Height, Width, Channel]
-        x = tf.reshape(x, shape=[-1, 128, 128, 1])
+        x = tf.reshape(x, shape= [batch_size, 128, 128, 1])
 
         # Convolution Layer with 32 filters and a kernel size of 5
-        #conv1 = tf.layers.conv2d(x, 32, 5, activation=tf.nn.relu)
+        conv1 = tf.layers.conv2d(x, 32, 5, activation=tf.nn.relu,padding="valid")
         # Max Pooling (down-sampling) with strides of 2 and kernel size of 2
-        #conv1 = tf.layers.max_pooling2d(conv1, 2, 2)
+        conv1 = tf.layers.max_pooling2d(conv1, 2, 2)
 
         # Convolution Layer with 32 filters and a kernel size of 5
-        #conv2 = tf.layers.conv2d(conv1, 64, 3, activation=tf.nn.relu)
+        conv2 = tf.layers.conv2d(conv1, 64, 3, activation=tf.nn.relu,padding="valid")
         # Max Pooling (down-sampling) with strides of 2 and kernel size of 2
-        #conv2 = tf.layers.max_pooling2d(conv2, 2, 2)
+        conv2 = tf.layers.max_pooling2d(conv2, 2, 2)
 
         # Flatten the data to a 1-D vector for the fully connected layer
-        fc1 = tf.contrib.layers.flatten(x)
+        fc1 = tf.contrib.layers.flatten(conv2)
 
-        # Fully connected layer (in contrib folder for now)
-        fc1 = tf.layers.dense(fc1, 128)
+        # Fully connected layer
+        fc1 = tf.layers.dense(fc1, 1024)
         # Apply Dropout (if is_training is False, dropout is not applied)
         fc1 = tf.layers.dropout(fc1, rate=dropout, training=is_training)
 
@@ -109,7 +109,7 @@ for step in range(1, num_steps + 1):
     except tf.errors.OutOfRangeError:
         # Reload the iterator when it reaches the end of the dataset
         # sess.run(iterator.initializer, feed_dict={max_value: 24000})
-        sess.run(training_init_op)   
+        #sess.run(training_init_op)   
         sess.run(train_op)
 
     if step % display_step == 0 or step == 1:
