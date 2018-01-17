@@ -26,7 +26,7 @@ min_dist = dist(i1,i2)
 
 for cat_img_path in os.listdir(DIR_PATH + "/cats/"):
     img_1 = cv2.imread(DIR_PATH + "/cats/" + cat_img_path)
-    print(cat_img_path)
+    print("Cat img: " + cat_img_path)
     for dog_img_path in os.listdir(DIR_PATH + "/dogs/"):
 	img_2 = cv2.imread(DIR_PATH + "/dogs/" + dog_img_path)
         if img_1 is None or img_2 is None:
@@ -35,10 +35,11 @@ for cat_img_path in os.listdir(DIR_PATH + "/cats/"):
 	if dist(img_1, img_2) < min_dist:
             print("min_dist updated:")
             num_updated += 1
-            min = dist(img_1, img_2)
+            min_dist = dist(img_1, img_2)
 	    min_cat_img = DIR_PATH + "/cats/" + cat_img_path
 	    min_dog_img = DIR_PATH + "/dogs/" + dog_img_path
             print(min_dist)
+            print("Cat img: " + cat_img_path + ", Dog img: " + dog_img_path)
 
 end = time.time()
 # output results
