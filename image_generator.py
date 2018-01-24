@@ -15,7 +15,7 @@ from sklearn.preprocessing import normalize
 min_dist = 15247.1165
 height = 128
 width = 128
-gen_per_img = 30
+gen_per_img = 10
 DIR_PATH = "/home/sid/tensorflow2.7/projects/tutorials/Tensorflow-tutorials/tutorial-2-image-classifier/training_data/"
 
 # keep track of how many images we've augmented
@@ -40,9 +40,10 @@ for cat_img in os.listdir(DIR_PATH + "cats/"):
         # we create a random image with the dimensions of the loaded image
         imarray = np.random.rand(height, width, 3) * 255
         # we normalize the image (corresponding 'unit' image)
-        img_min = imarray.min(axis=(1, 2), keepdims=True)
-        img_max = imarray.max(axis=(1, 2), keepdims=True)
-        imarray = (imarray - img_min)/(img_max - img_min)
+        # img_min = imarray.min(axis=(1, 2), keepdims=True)
+        # img_max = imarray.max(axis=(1, 2), keepdims=True)
+        # imarray = (imarray - img_min)/(img_max - img_min)
+        imarray = normalize(imarray, norm='l1', axis=1, copy=False, return_norm=False)
         # we 'scale' our unit image by a factor of half the minimum distance 
         # between a cat and dog image (our least 'margin')
         imarray = imarray * min_dist / 2
@@ -85,9 +86,10 @@ for dog_img in os.listdir(DIR_PATH + "dogs/"):
         # we create a random image with the dimensions of the loaded image
         imarray = np.random.rand(height, width, 3) * 255
         # we normalize the image (corresponding 'unit' image)
-        img_min = imarray.min(axis=(1, 2), keepdims=True)
-        img_max = imarray.max(axis=(1, 2), keepdims=True)
-        imarray = (imarray - img_min)/(img_max - img_min)
+       # img_min = imarray.min(axis=(1, 2), keepdims=True)
+       # img_max = imarray.max(axis=(1, 2), keepdims=True)
+       # imarray = (imarray - img_min)/(img_max - img_min)
+        imarray = normalize(imarray, norm='l1', axis=1, copy=False, return_norm=False) 
         # we 'scale' our unit image by a factor of half the minimum distance 
         # between a cat and dog image (our least 'margin')
         imarray = imarray * min_dist / 2
