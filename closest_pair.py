@@ -19,7 +19,7 @@ def dist(i1,i2):
     i1 = cv2.resize(i1, (image_size, image_size),0,0, cv2.INTER_LINEAR)
     i2 = cv2.resize(i2, (image_size, image_size),0,0, cv2.INTER_LINEAR)
     #print(np.linalg.norm(i1-i2))
-    return np.linalg.norm(i1-i2)
+    return np.sum((i1-i2)**2)
 
 # we don't know scale of distance, so we set a random distance as the min 
 min_dist = dist(i1,i2)

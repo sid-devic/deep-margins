@@ -202,4 +202,4 @@ Training Epoch 49 --- Training Accuracy:  93.8%, Validation Accuracy:  59.4%,  V
 ]0;sid@blueberry ~/tensorflow2.7/projects/tutorials/Tensorflow-tutorials/tutorial-2-image-classifier[01;32msid@blueberry[00m [01;34m~/tensorflow2.7/projects/tutorials/Tensorflow-tutorials/tutorial-2-image-classsifier $[00m [K[A]0;sid@blueberry ~/tensorflow2.7/projects/tutorials/Tensorflow-tutorials/tutorial-2-image-classifier[01;32msid@blueberry[00m [01;34m~/tensorflow2.7/projects/tutorials/Tensorflow-tutorials/tutorial-2-image-classifier $[00m exit
 exit
 
-Script done on Wed 24 Jan 2018 11:02:01 AM CST
+

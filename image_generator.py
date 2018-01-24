@@ -8,10 +8,12 @@ from PIL import Image
 import time
 from sklearn.preprocessing import normalize
 
-# settings
-## Create a set of random images around a given image
-## Cat img: 4451.jpg, Dog img: 11942.jpg
-## min dist: 15247.1165471
+#-------------------- settings -----------------------##
+## Create a set of random images around a given image ##
+## Cat img: 4451.jpg, Dog img: 11942.jpg              ## 
+## min dist: 15247.1165471                            ##
+######################################################## 
+
 min_dist = 15247.1165
 height = 128
 width = 128
@@ -40,10 +42,10 @@ for cat_img in os.listdir(DIR_PATH + "cats/"):
         # we create a random image with the dimensions of the loaded image
         imarray = np.random.rand(height, width, 3) * 255
         # we normalize the image (corresponding 'unit' image)
-        # img_min = imarray.min(axis=(1, 2), keepdims=True)
-        # img_max = imarray.max(axis=(1, 2), keepdims=True)
-        # imarray = (imarray - img_min)/(img_max - img_min)
-        imarray = normalize(imarray, norm='l1', axis=1, copy=False, return_norm=False)
+        img_min = imarray.min(axis=(1, 2), keepdims=True)
+        img_max = imarray.max(axis=(1, 2), keepdims=True)
+        imarray = (imarray - img_min)/(img_max - img_min)
+
         # we 'scale' our unit image by a factor of half the minimum distance 
         # between a cat and dog image (our least 'margin')
         imarray = imarray * min_dist / 2
@@ -86,10 +88,10 @@ for dog_img in os.listdir(DIR_PATH + "dogs/"):
         # we create a random image with the dimensions of the loaded image
         imarray = np.random.rand(height, width, 3) * 255
         # we normalize the image (corresponding 'unit' image)
-       # img_min = imarray.min(axis=(1, 2), keepdims=True)
-       # img_max = imarray.max(axis=(1, 2), keepdims=True)
-       # imarray = (imarray - img_min)/(img_max - img_min)
-        imarray = normalize(imarray, norm='l1', axis=1, copy=False, return_norm=False) 
+        img_min = imarray.min(axis=(1, 2), keepdims=True)
+        img_max = imarray.max(axis=(1, 2), keepdims=True)
+        imarray = (imarray - img_min)/(img_max - img_min)
+
         # we 'scale' our unit image by a factor of half the minimum distance 
         # between a cat and dog image (our least 'margin')
         imarray = imarray * min_dist / 2
