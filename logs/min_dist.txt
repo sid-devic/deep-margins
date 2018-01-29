@@ -1,0 +1,7 @@
+
+k 2374.98505497 seconds
+Minimum eucl. dist: 1867584
+/home/sid/tensorflow2.7/projects/tutorials/Tensorflow-tutorials/tutorial-2-image-classifier/training_data/cats/8068.jpg
+/home/sid/tensorflow2.7/projects/tutorials/Tensorflow-tutorials/tutorial-2-image-classifier/training_data/dogs/10190.jpg
+Num updated: 29
+

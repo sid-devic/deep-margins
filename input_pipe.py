@@ -15,8 +15,12 @@ train_labels_arr = []
 val_imgs_arr = []
 val_labels_arr = []
 
+num_images = 25000
+training_dist = .8
+
 def input_function(img_path, label):
-    """ Function we call on our tf.dataset, takes in 
+    """ 
+    Function we call on our tf.dataset, takes in 
     image paths and loads images, all natively tf.
 
     returns: tuple (img, one_hot label vector)
@@ -33,7 +37,8 @@ def input_function(img_path, label):
     return img_decoded, one_hot
 
 def is_invalid_img(img_path):
-    """ Helper function so that we don't load invalid images into our dataset
+    """ 
+    Helper function so that we don't load invalid images into our dataset
     """
     checked_img = cv2.imread(DIR_PATH + img_path)
     invalid = False
@@ -46,7 +51,7 @@ start = time.time()
 
 # because tf.shuffle(buffer_size) has some issues, we 
 # randomly iterate through our data ourself, to make sure it's not ordered.
-r = list(range(25000))
+r = list(range(num_images))
 random.shuffle(r)
 for x in r:
     curr_dir = "/Cat/"
@@ -55,17 +60,17 @@ for x in r:
     new_x = x
     # 0 for Cat, 1 for Dog
     img_class = 0
-    if x > 12500:
+    if x > num_images/2:
         curr_dir = "/Dog/"
-        new_x = x-12500
+        new_x = x-(num_images/2)
         img_class = 1
-    # we check if the img is a valid one, don't want bad data
+    # we check if the img is a valid one, don't want bad data to clog up our input pipe
     if is_invalid_img(curr_dir + str(new_x)+".jpg"):
         continue
-    # we add data to our training set with 80% probability, otherwise it goes
+    # we add data to our training set with 'training_dist' probability, otherwise it goes
     # to our val set. This is crude, will change later.
     rand_num = random.random()
-    if rand_num < .8:
+    if rand_num < training_dist:
         train_imgs_arr.append(DIR_PATH + curr_dir + str(new_x)+".jpg")
         train_labels_arr.append(int(img_class))
     else:

@@ -14,10 +14,10 @@ from sklearn.preprocessing import normalize
 ## min dist: 15247.1165471                            ##
 ######################################################## 
 
-min_dist = 15247.1165
+min_dist = 1867584
 height = 128
 width = 128
-gen_per_img = 10
+gen_per_img = 25
 DIR_PATH = "/home/sid/tensorflow2.7/projects/tutorials/Tensorflow-tutorials/tutorial-2-image-classifier/training_data/"
 
 # keep track of how many images we've augmented

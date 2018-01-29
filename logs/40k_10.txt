@@ -1,68 +1,64 @@
-Script started on Wed 24 Jan 2018 11:45:11 AM CST
-]0;sid@blueberry ~/tensorflow2.7/projects/tutorials/Tensorflow-tutorials/tutorial-2-image-classifier[01;32msid@blueberry[00m [01;34m~/tensorflow2.7/projects/tutorials/Tensorflow-tutorials/tutorial-2-image-classifier $[00m exitpython trainn.py 
-Going to read training images
+
+ing to read training images
 Now going to read dogs files (Index: 0)
 Now going to read cats files (Index: 1)
 Complete reading input data. Will Now print a snippet of it
 Number of files in Training-set:		28133
 Number of files in Validation-set:	5000
-2018-01-24 11:53:04.044382: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
-2018-01-24 11:53:10.216381: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:892] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
-2018-01-24 11:53:10.231508: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
+2018-01-27 14:57:12.999371: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2018-01-27 14:57:16.107783: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:892] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-01-27 14:57:16.114583: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
 name: GeForce GTX 1060 6GB major: 6 minor: 1 memoryClockRate(GHz): 1.7085
 pciBusID: 0000:01:00.0
-totalMemory: 5.93GiB freeMemory: 5.46GiB
-2018-01-24 11:53:10.242755: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0, compute capability: 6.1)
+totalMemory: 5.93GiB freeMemory: 5.68GiB
+2018-01-27 14:57:16.118799: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0, compute capability: 6.1)
 WARNING:tensorflow:From train.py:43: calling argmax (from tensorflow.python.ops.math_ops) with dimension is deprecated and will be removed in a future version.
 Instructions for updating:
 Use the `axis` argument instead
-Training Epoch 1 --- Training Accuracy:  56.2%, Validation Accuracy:  56.2%,  Validation Loss: 0.687
-Training Epoch 2 --- Training Accuracy:  46.9%, Validation Accuracy:  65.6%,  Validation Loss: 0.691
-Training Epoch 3 --- Training Accuracy:  56.2%, Validation Accuracy:  50.0%,  Validation Loss: 0.688
-Training Epoch 4 --- Training Accuracy:  34.4%, Validation Accuracy:  50.0%,  Validation Loss: 0.689
-Training Epoch 5 --- Training Accuracy:  50.0%, Validation Accuracy:  43.8%,  Validation Loss: 0.696
-Training Epoch 6 --- Training Accuracy:  37.5%, Validation Accuracy:  56.2%,  Validation Loss: 0.681
-Training Epoch 7 --- Training Accuracy:  50.0%, Validation Accuracy:  43.8%,  Validation Loss: 0.743
-Training Epoch 8 --- Training Accuracy:  40.6%, Validation Accuracy:  53.1%,  Validation Loss: 0.719
-Training Epoch 9 --- Training Accuracy:  40.6%, Validation Accuracy:  59.4%,  Validation Loss: 0.688
-Training Epoch 10 --- Training Accuracy:  40.6%, Validation Accuracy:  50.0%,  Validation Loss: 0.681
-Training Epoch 11 --- Training Accuracy:  43.8%, Validation Accuracy:  53.1%,  Validation Loss: 0.694
-Training Epoch 12 --- Training Accuracy:  40.6%, Validation Accuracy:  59.4%,  Validation Loss: 0.670
-Training Epoch 13 --- Training Accuracy:  46.9%, Validation Accuracy:  59.4%,  Validation Loss: 0.752
-Training Epoch 14 --- Training Accuracy:  53.1%, Validation Accuracy:  43.8%,  Validation Loss: 1.149
-Training Epoch 15 --- Training Accuracy:  56.2%, Validation Accuracy:  46.9%,  Validation Loss: 0.918
-Training Epoch 16 --- Training Accuracy:  59.4%, Validation Accuracy:  50.0%,  Validation Loss: 0.705
-Training Epoch 17 --- Training Accuracy:  56.2%, Validation Accuracy:  59.4%,  Validation Loss: 0.616
-Training Epoch 18 --- Training Accuracy:  53.1%, Validation Accuracy:  62.5%,  Validation Loss: 0.626
-Training Epoch 19 --- Training Accuracy:  53.1%, Validation Accuracy:  65.6%,  Validation Loss: 0.619
-Training Epoch 20 --- Training Accuracy:  53.1%, Validation Accuracy:  53.1%,  Validation Loss: 0.690
-Training Epoch 21 --- Training Accuracy:  65.6%, Validation Accuracy:  62.5%,  Validation Loss: 0.647
-Training Epoch 22 --- Training Accuracy:  62.5%, Validation Accuracy:  59.4%,  Validation Loss: 0.709
-Training Epoch 23 --- Training Accuracy:  59.4%, Validation Accuracy:  53.1%,  Validation Loss: 0.884
-Training Epoch 24 --- Training Accuracy:  56.2%, Validation Accuracy:  37.5%,  Validation Loss: 0.786
-Training Epoch 25 --- Training Accuracy:  56.2%, Validation Accuracy:  43.8%,  Validation Loss: 1.076
-Training Epoch 26 --- Training Accuracy:  59.4%, Validation Accuracy:  43.8%,  Validation Loss: 0.788
-Training Epoch 27 --- Training Accuracy:  62.5%, Validation Accuracy:  46.9%,  Validation Loss: 1.001
-Training Epoch 28 --- Training Accuracy:  62.5%, Validation Accuracy:  56.2%,  Validation Loss: 1.021
-Training Epoch 29 --- Training Accuracy:  65.6%, Validation Accuracy:  59.4%,  Validation Loss: 0.656
-Training Epoch 30 --- Training Accuracy:  65.6%, Validation Accuracy:  50.0%,  Validation Loss: 0.781
-Training Epoch 31 --- Training Accuracy:  75.0%, Validation Accuracy:  46.9%,  Validation Loss: 0.909
-Training Epoch 32 --- Training Accuracy:  75.0%, Validation Accuracy:  50.0%,  Validation Loss: 0.952
-Training Epoch 33 --- Training Accuracy:  78.1%, Validation Accuracy:  59.4%,  Validation Loss: 0.730
-Training Epoch 34 --- Training Accuracy:  75.0%, Validation Accuracy:  78.1%,  Validation Loss: 0.526
-Training Epoch 35 --- Training Accuracy:  81.2%, Validation Accuracy:  65.6%,  Validation Loss: 0.685
-Training Epoch 36 --- Training Accuracy:  81.2%, Validation Accuracy:  62.5%,  Validation Loss: 0.751
-Training Epoch 37 --- Training Accuracy:  81.2%, Validation Accuracy:  50.0%,  Validation Loss: 0.778
-Training Epoch 38 --- Training Accuracy:  81.2%, Validation Accuracy:  43.8%,  Validation Loss: 0.985
-Training Epoch 39 --- Training Accuracy:  84.4%, Validation Accuracy:  50.0%,  Validation Loss: 0.833
-Training Epoch 40 --- Training Accuracy:  81.2%, Validation Accuracy:  56.2%,  Validation Loss: 0.964
-Training Epoch 41 --- Training Accuracy:  87.5%, Validation Accuracy:  59.4%,  Validation Loss: 1.049
-Training Epoch 42 --- Training Accuracy:  87.5%, Validation Accuracy:  43.8%,  Validation Loss: 0.939
-Training Epoch 43 --- Training Accuracy:  87.5%, Validation Accuracy:  53.1%,  Validation Loss: 1.021
-Training Epoch 44 --- Training Accuracy:  87.5%, Validation Accuracy:  56.2%,  Validation Loss: 1.209
-Training Epoch 45 --- Training Accuracy:  87.5%, Validation Accuracy:  37.5%,  Validation Loss: 1.274
-Training Epoch 46 --- Training Accuracy:  87.5%, Validation Accuracy:  62.5%,  Validation Loss: 0.969
-]0;sid@blueberry ~/tensorflow2.7/projects/tutorials/Tensorflow-tutorials/tutorial-2-image-classifier[01;32msid@blueberry[00m [01;34m~/tensorflow2.7/projects/tutorials/Tensorflow-tutorials/tutorial-2-image-classifier $[00m exit
-exit
+Training Epoch 1 --- Training Accuracy:  56.2%, Validation Accuracy:  56.2%,  Validation Loss: 0.690
+Training Epoch 2 --- Training Accuracy:  46.9%, Validation Accuracy:  65.6%,  Validation Loss: 0.690
+Training Epoch 3 --- Training Accuracy:  46.9%, Validation Accuracy:  53.1%,  Validation Loss: 0.687
+Training Epoch 4 --- Training Accuracy:  43.8%, Validation Accuracy:  50.0%,  Validation Loss: 0.688
+Training Epoch 5 --- Training Accuracy:  31.2%, Validation Accuracy:  46.9%,  Validation Loss: 0.696
+Training Epoch 6 --- Training Accuracy:  50.0%, Validation Accuracy:  53.1%,  Validation Loss: 0.681
+Training Epoch 7 --- Training Accuracy:  56.2%, Validation Accuracy:  40.6%,  Validation Loss: 0.751
+Training Epoch 8 --- Training Accuracy:  46.9%, Validation Accuracy:  50.0%,  Validation Loss: 0.728
+Training Epoch 9 --- Training Accuracy:  43.8%, Validation Accuracy:  62.5%,  Validation Loss: 0.673
+Training Epoch 10 --- Training Accuracy:  50.0%, Validation Accuracy:  46.9%,  Validation Loss: 0.675
+Training Epoch 11 --- Training Accuracy:  53.1%, Validation Accuracy:  50.0%,  Validation Loss: 0.698
+Training Epoch 12 --- Training Accuracy:  53.1%, Validation Accuracy:  75.0%,  Validation Loss: 0.617
+Training Epoch 13 --- Training Accuracy:  46.9%, Validation Accuracy:  46.9%,  Validation Loss: 0.735
+Training Epoch 14 --- Training Accuracy:  46.9%, Validation Accuracy:  56.2%,  Validation Loss: 0.915
+Training Epoch 15 --- Training Accuracy:  50.0%, Validation Accuracy:  53.1%,  Validation Loss: 1.014
+Training Epoch 16 --- Training Accuracy:  46.9%, Validation Accuracy:  65.6%,  Validation Loss: 0.719
+Training Epoch 17 --- Training Accuracy:  59.4%, Validation Accuracy:  65.6%,  Validation Loss: 0.586
+Training Epoch 18 --- Training Accuracy:  50.0%, Validation Accuracy:  46.9%,  Validation Loss: 0.677
+Training Epoch 19 --- Training Accuracy:  59.4%, Validation Accuracy:  40.6%,  Validation Loss: 0.744
+Training Epoch 20 --- Training Accuracy:  53.1%, Validation Accuracy:  59.4%,  Validation Loss: 0.695
+Training Epoch 21 --- Training Accuracy:  65.6%, Validation Accuracy:  40.6%,  Validation Loss: 0.850
+Training Epoch 22 --- Training Accuracy:  65.6%, Validation Accuracy:  53.1%,  Validation Loss: 0.697
+Training Epoch 23 --- Training Accuracy:  62.5%, Validation Accuracy:  68.8%,  Validation Loss: 0.902
+Training Epoch 24 --- Training Accuracy:  65.6%, Validation Accuracy:  46.9%,  Validation Loss: 0.726
+Training Epoch 25 --- Training Accuracy:  68.8%, Validation Accuracy:  50.0%,  Validation Loss: 1.584
+Training Epoch 26 --- Training Accuracy:  71.9%, Validation Accuracy:  34.4%,  Validation Loss: 0.900
+Training Epoch 27 --- Training Accuracy:  75.0%, Validation Accuracy:  62.5%,  Validation Loss: 0.802
+Training Epoch 28 --- Training Accuracy:  78.1%, Validation Accuracy:  53.1%,  Validation Loss: 0.929
+Training Epoch 29 --- Training Accuracy:  78.1%, Validation Accuracy:  71.9%,  Validation Loss: 0.569
+Training Epoch 30 --- Training Accuracy:  78.1%, Validation Accuracy:  56.2%,  Validation Loss: 0.747
+Training Epoch 31 --- Training Accuracy:  81.2%, Validation Accuracy:  37.5%,  Validation Loss: 1.033
+Training Epoch 32 --- Training Accuracy:  81.2%, Validation Accuracy:  68.8%,  Validation Loss: 0.622
+Training Epoch 33 --- Training Accuracy:  90.6%, Validation Accuracy:  75.0%,  Validation Loss: 0.680
+Training Epoch 34 --- Training Accuracy:  84.4%, Validation Accuracy:  50.0%,  Validation Loss: 0.755
+Training Epoch 35 --- Training Accuracy:  84.4%, Validation Accuracy:  34.4%,  Validation Loss: 1.159
+Training Epoch 36 --- Training Accuracy:  84.4%, Validation Accuracy:  56.2%,  Validation Loss: 0.786
+Training Epoch 37 --- Training Accuracy:  84.4%, Validation Accuracy:  53.1%,  Validation Loss: 0.939
+Training Epoch 38 --- Training Accuracy:  84.4%, Validation Accuracy:  65.6%,  Validation Loss: 0.721
+Training Epoch 39 --- Training Accuracy:  87.5%, Validation Accuracy:  56.2%,  Validation Loss: 1.236
+Training Epoch 40 --- Training Accuracy:  90.6%, Validation Accuracy:  65.6%,  Validation Loss: 1.124
+Training Epoch 41 --- Training Accuracy:  87.5%, Validation Accuracy:  68.8%,  Validation Loss: 0.726
+Training Epoch 42 --- Training Accuracy:  93.8%, Validation Accuracy:  43.8%,  Validation Loss: 1.552
+Training Epoch 43 --- Training Accuracy:  93.8%, Validation Accuracy:  40.6%,  Validation Loss: 1.504
+Training Epoch 44 --- Training Accuracy:  93.8%, Validation Accuracy:  46.9%,  Validation Loss: 2.161
+Training Epoch 45 --- Training Accuracy:  96.9%, Validation Accuracy:  40.6%,  Validation Loss: 1.651
+Training Epoch 46 --- Training Accuracy:  96.9%, Validation Accuracy:  56.2%,  Validation Loss: 1.113
 
-Script done on Wed 24 Jan 2018 12:41:03 PM CST
