@@ -91,15 +91,20 @@ class DataSet(object):
     return self._images[start:end], self._labels[start:end], self._img_names[start:end], self._cls[start:end]
 
 
-def read_train_sets(train_path, image_size, classes, validation_size):
+def read_train_sets(train_path, val_path, image_size, classes):
   class DataSets(object):
     pass
   data_sets = DataSets()
 
-  images, labels, img_names, cls = load_train(train_path, image_size, classes)
-  images, labels, img_names, cls = shuffle(images, labels, img_names, cls)  
+  train_images, train_labels, train_img_names, train_cls = load_train(train_path, image_size, classes)
+  train_images, train_labels, tain_img_names, train_cls = shuffle(train_images, train_labels, train_img_names, train_cls)
+  
+  validation_images, validation_labels, validation_img_names, validation_cls = load_train(val_path, image_size, classes) 
+  validation_images, validation_labels, validation_img_names, validation_cls = shuffle(validation_images, validation_labels, validation_img_names, validation_cls) 
 
-  if isinstance(validation_size, float):
+ # we modify the way the validation set is handled, wasn't actually coming from "/testing_data/"
+  ''' 
+ if isinstance(validation_size, float):
     validation_size = int(validation_size * images.shape[0])
 
   validation_images = images[:validation_size]
@@ -111,7 +116,7 @@ def read_train_sets(train_path, image_size, classes, validation_size):
   train_labels = labels[validation_size:]
   train_img_names = img_names[validation_size:]
   train_cls = cls[validation_size:]
-
+  '''
   data_sets.train = DataSet(train_images, train_labels, train_img_names, train_cls)
   data_sets.valid = DataSet(validation_images, validation_labels, validation_img_names, validation_cls)
 

@@ -20,13 +20,14 @@ classes = ['dogs','cats']
 num_classes = len(classes)
 
 # 20% of the data will automatically be used for validation
-validation_size = 0.15091
+validation_size = 0
 img_size = 128
 num_channels = 3
 train_path="training_data"
+val_path = "testing_data"
 
 # We shall load all the training and validation images and labels into memory using openCV and use that during training
-data = dataset.read_train_sets(train_path, img_size, classes, validation_size=validation_size)
+data = dataset.read_train_sets(train_path, val_path, img_size, classes)
 
 
 print("Complete reading input data. Will Now print a snippet of it")
@@ -197,6 +198,7 @@ def train(num_iteration):
             epoch = int(i / int(data.train.num_examples/batch_size))    
             
             show_progress(epoch, feed_dict_tr, feed_dict_val, val_loss)
+	    print(total_iterations)
             saver.save(session, "./test_model.ckpt")
 
 

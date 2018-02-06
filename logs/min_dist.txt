@@ -5,3 +5,6 @@ Minimum eucl. dist: 1867584
 /home/sid/tensorflow2.7/projects/tutorials/Tensorflow-tutorials/tutorial-2-image-classifier/training_data/dogs/10190.jpg
 Num updated: 29
 
+r0: No generated images
+r1: 1867584 | 10 imgs per
+r2: 933792 | 10 imgs per
