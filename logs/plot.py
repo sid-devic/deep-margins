@@ -2,6 +2,9 @@ import re
 import sys
 import matplotlib.pyplot as plt
 
+# A script that takes in a training file as input, and outputs a pyplot of val_acc v. epoch
+# input is through terminal argument
+
 PATH = sys.argv[1]
 
 val_list = []
@@ -32,3 +35,4 @@ print(val_list)
 plt.plot(val_list)
 plt.ylabel("Validation accuracy")
 plt.show()
+plt.savefig(PATH[:-4] + ".png")
