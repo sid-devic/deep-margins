@@ -34,5 +34,5 @@ print(val_list)
 
 plt.plot(val_list)
 plt.ylabel("Validation accuracy")
-plt.show()
 plt.savefig(PATH[:-4] + ".png")
+plt.show()
