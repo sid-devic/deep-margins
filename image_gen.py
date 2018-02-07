@@ -14,7 +14,7 @@ from sklearn.preprocessing import normalize
 ## min dist: 15247.1165471                            ##
 ######################################################## 
 
-min_dist = 29181
+min_dist = 3735168
 height = 128
 width = 128
 gen_per_img = 10
