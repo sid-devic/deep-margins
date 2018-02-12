@@ -106,4 +106,3 @@ end = time.time()
 print("It took " + str(end - start) + " seconds to load the data.")
 print(tr_data.output_types)
 print(tr_data.output_shapes)
-

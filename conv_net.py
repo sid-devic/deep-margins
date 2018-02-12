@@ -47,7 +47,7 @@ def conv_net(x, n_classes, dropout, reuse, is_training):
         # cats v dogs imgs are [128 * 128]
         # Reshape to match picture format [Height x Width x Channel]
         # Tensor input become 4-D: [Batch Size, Height, Width, Channel]
-        x = tf.reshape(x, shape= [batch_size, 128, 128, 1])
+        x = tf.reshape(x, shape= [-1, 128, 128, 1])
 
         # Convolution Layer with 32 filters and a kernel size of 5
         conv1 = tf.layers.conv2d(x, 32, 5, activation=tf.nn.relu,padding="valid")

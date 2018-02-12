@@ -46,16 +46,41 @@ y_true_cls = tf.argmax(y_true, dimension=1)
 
 
 ##Network graph params
-filter_size_conv1 = 3 
+filter_size_conv1 = 3
 num_filters_conv1 = 32
 
 filter_size_conv2 = 3
-num_filters_conv2 = 32
+num_filters_conv2 = 64
 
 filter_size_conv3 = 3
-num_filters_conv3 = 64
-    
-fc_layer_size = 128
+num_filters_conv3 = 128 #64
+
+# added
+filter_size_conv4 = 3
+num_filters_conv4 = 128
+
+filter_size_conv5 = 3
+num_filters_conv5 = 128
+
+filter_size_conv6 = 3
+num_filters_conv6 = 128
+
+filter_size_conv7 = 3
+num_filters_conv7 = 128
+
+filter_size_conv8 = 3
+num_filters_conv8 = 128
+
+filter_size_conv9 = 3
+num_filters_conv9 = 128
+
+filter_size_conv10 = 3
+num_filters_conv10 = 128
+
+filter_size_conv11 = 3
+num_filters_conv11 = 128
+
+fc1_layer_size = 128 #128
 
 def create_weights(shape):
     return tf.Variable(tf.truncated_normal(shape, stddev=0.05))
@@ -139,18 +164,59 @@ layer_conv3= create_convolutional_layer(input=layer_conv2,
                num_input_channels=num_filters_conv2,
                conv_filter_size=filter_size_conv3,
                num_filters=num_filters_conv3)
-          
-layer_flat = create_flatten_layer(layer_conv3)
+
+layer_conv4 = create_convolutional_layer(input=layer_conv3,
+	       num_input_channels=num_filters_conv3,
+	       conv_filter_size=filter_size_conv4,
+	       num_filters=num_filters_conv4)
+
+layer_conv5 = create_convolutional_layer(input=layer_conv4,
+	       num_input_channels=num_filters_conv4,
+	       conv_filter_size=filter_size_conv5,
+	       num_filters=num_filters_conv5)
+
+layer_conv6 = create_convolutional_layer(input=layer_conv5,
+	       num_input_channels=num_filters_conv5,
+	       conv_filter_size=filter_size_conv6,
+	       num_filters=num_filters_conv6)
+
+
+layer_conv7 = create_convolutional_layer(input=layer_conv6,
+	       num_input_channels=num_filters_conv6,
+	       conv_filter_size=filter_size_conv7,
+	       num_filters=num_filters_conv7)
+
+layer_conv8 = create_convolutional_layer(input=layer_conv7,
+	       num_input_channels=num_filters_conv7,
+	       conv_filter_size=filter_size_conv8,
+	       num_filters=num_filters_conv8)
+
+layer_conv9 = create_convolutional_layer(input=layer_conv8,
+	       num_input_channels=num_filters_conv8,
+	       conv_filter_size=filter_size_conv9,
+	       num_filters=num_filters_conv9)
+
+layer_conv10 = create_convolutional_layer(input=layer_conv9,
+	       num_input_channels=num_filters_conv9,
+	       conv_filter_size=filter_size_conv10,
+	       num_filters=num_filters_conv10)
+
+layer_conv11 = create_convolutional_layer(input=layer_conv10,
+	       num_input_channels=num_filters_conv10,
+	       conv_filter_size=filter_size_conv11,
+	       num_filters=num_filters_conv11)
+
+layer_flat = create_flatten_layer(layer_conv11)
 
 layer_fc1 = create_fc_layer(input=layer_flat,
                      num_inputs=layer_flat.get_shape()[1:4].num_elements(),
-                     num_outputs=fc_layer_size,
+                     num_outputs=fc1_layer_size,
                      use_relu=True)
 
 layer_fc2 = create_fc_layer(input=layer_fc1,
-                     num_inputs=fc_layer_size,
+                     num_inputs=fc1_layer_size,
                      num_outputs=num_classes,
-                     use_relu=False) 
+                     use_relu=True)
 
 y_pred = tf.nn.softmax(layer_fc2,name='y_pred')
 
@@ -159,7 +225,7 @@ session.run(tf.global_variables_initializer())
 cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=layer_fc2,
                                                     labels=y_true)
 cost = tf.reduce_mean(cross_entropy)
-optimizer = tf.train.AdamOptimizer(learning_rate=1e-4).minimize(cost)
+optimizer = tf.train.AdamOptimizer(learning_rate=1e-4).minimize(cost)  #1e-4
 correct_prediction = tf.equal(y_pred_cls, y_true_cls)
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
@@ -171,6 +237,8 @@ def show_progress(epoch, feed_dict_train, feed_dict_validate, val_loss):
     acc = session.run(accuracy, feed_dict=feed_dict_train)
     val_acc = session.run(accuracy, feed_dict=feed_dict_validate)
     msg = "Training Epoch {0} --- Training Accuracy: {1:>6.1%}, Validation Accuracy: {2:>6.1%},  Validation Loss: {3:.3f}"
+   # msg = "Training Epoch {0} --- Training Accuracy: {1:4%}, Validation Accuracy: {2:4%},  Validation Loss: {3:.5f}"
+  
     print(msg.format(epoch + 1, acc, val_acc, val_loss))
 
 total_iterations = 0
@@ -197,11 +265,10 @@ def train(num_iteration):
             val_loss = session.run(cost, feed_dict=feed_dict_val)
             epoch = int(i / int(data.train.num_examples/batch_size))    
             
-            show_progress(epoch, feed_dict_tr, feed_dict_val, val_loss)
-	    print(total_iterations)
+            show_progress(epoch, feed_dict_tr, feed_dict_val, val_loss)    
             saver.save(session, "./test_model.ckpt")
 
-
+    print(int(num_iteration))
     total_iterations += num_iteration
 
 train(num_iteration=60000)
