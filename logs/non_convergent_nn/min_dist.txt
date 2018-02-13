@@ -1,0 +1,12 @@
+# A log for keeping track of the new minimum distance generated images 
+# as we binary search for something that doesn't change the val_acc
+
+r0: No generated images (base test)
+r1: 1867584 | 10 imgs
+r2: 933792 | 10 imgs 
+r3: 466896 | 10 imgs
+r4: 233448 | 10 imgs
+r5: 116724 | 10 imgs
+r6: 58362 | 10 imgs
+r7: 29181 | 10 imgs
+r8 3735168 | 10 imgs

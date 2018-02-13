@@ -21,8 +21,9 @@ gen_per_img = 5
 DIR_PATH = "/home/sid/deep-margins/tutorial/training_data/"
 
 # keep track of how many images we've augmented
-path, dirs, files = os.walk(DIR_PATH + "cats/").next()
-file_count = len(files)
+path_cat, dirs_cat, files_cat = os.walk(DIR_PATH + "cats/").next()
+path_dog, dirs_dog, files_dog = os.walk(DIR_PATH + "dogs/").next()
+file_count = len(files_cat + files_dog)
 count = 0
 
 # loop over all cat images
