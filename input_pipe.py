@@ -5,9 +5,11 @@ import cv2
 import time
 
 # 12500 imgs of cats, 12500 imgs of dogs
-
+# Cat = 0, Dog = 1
 # Home image directory
 DIR_PATH="/home/sid/datasets/PetImages"
+
+img_size = 128
 
 # our placeholder arrays, which we will turn into actual data later
 train_imgs_arr = []
@@ -15,7 +17,7 @@ train_labels_arr = []
 val_imgs_arr = []
 val_labels_arr = []
 
-num_images = 25000
+num_images = 100
 training_dist = .8
 
 def input_function(img_path, label):
@@ -26,13 +28,17 @@ def input_function(img_path, label):
     returns: tuple (img, one_hot label vector)
     """
     # label to one-hot
-    one_hot = tf.one_hot(label, 2)
+    one_hot = label
+    # one_hot = tf.one_hot(label, 2)      # We don't always want one hot
     
     #path->image
     img_file = tf.read_file(img_path)
-    img_decoded = tf.image.decode_image(img_file)
+    img_decoded = tf.image.decode_image(img_file, channels=3)
     # cast to float32
     img_decoded = tf.cast(img_decoded, tf.float32)
+    img_decoded = tf.image.resize_image_with_crop_or_pad(img_decoded, 128, 128)
+    img_decoded = tf.reshape(img_decoded, [16384*3])
+    one_hot = tf.reshape(one_hot, [1])
 
     return img_decoded, one_hot
 
@@ -77,11 +83,12 @@ for x in r:
         val_imgs_arr.append(DIR_PATH + curr_dir + str(new_x) +".jpg")
         val_labels_arr.append(int(img_class))
 
+
 # now we add our train and val arrs to actual tf.constants
 train_imgs = tf.constant(train_imgs_arr)
-train_labels = tf.constant(train_labels_arr)
+train_labels = tf.constant(train_labels_arr, dtype=tf.int32)
 val_imgs = tf.constant(val_imgs_arr)
-val_labels = tf.constant(val_labels_arr)
+val_labels = tf.constant(val_labels_arr, dtype=tf.int32)
 
 # now we use tf's new Datasets pipeline to create a tuple of imgs and labels
 tr_data = tf.data.Dataset.from_tensor_slices((train_imgs, train_labels))
@@ -93,16 +100,11 @@ print(len(val_labels_arr) + len(train_labels_arr))
 tr_data = tr_data.map(input_function)
 val_data = val_data.map(input_function)
 
-# now we create our iterator
-iterator = tf.data.Iterator.from_structure(tr_data.output_types, tr_data.output_shapes)
-
-next_element = iterator.get_next()
-
-# create two initialization ops to switch between the datasets
-training_init_op = iterator.make_initializer(tr_data)
-validation_init_op = iterator.make_initializer(val_data)
+tr_data = tr_data.batch(1)
+val_data = val_data.batch(1)
 
 end = time.time()
 print("It took " + str(end - start) + " seconds to load the data.")
 print(tr_data.output_types)
 print(tr_data.output_shapes)
+

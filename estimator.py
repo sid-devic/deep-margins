@@ -1,11 +1,12 @@
 import tensorflow as tf
 import numpy as np
-from input_pipe import tr_data, val_data, training_init_op, validation_init_op, next_element, train_imgs, train_labels
+from input_pipe import tr_data, val_data
+import image
 
 # Parameters
 learning_rate = 1e-4
 num_epochs = 2000
-batch_size = 128
+batch_size = 1
 display_step = 100
 
 # We know that the images are 128x128
@@ -30,32 +31,31 @@ val_dataset = val_data
 
 def train_input_fn():
 	tr_data = train_dataset.batch(batch_size)
-	tr_data = tr_data.repeat(num_epochs)
-	# iterator = tr_data.make_one_shot_iterator()
-	iterator = tf.data.Iterator.from_structure(tr_data.output_types, tr_data.output_shapes)
+	#tr_data = tr_data.repeat(num_epochs)
+	#tr_data = tr_data.repeat()
+	iterator = train_dataset.make_one_shot_iterator()
+	# iterator = tf.data.Iterator.from_structure(tr_data.output_types, tr_data.output_shapes)
 
 	features, labels = iterator.get_next()
-
-	return features, labels
+	x = {'image': features}
+	y = labels
+	return x, y
 
 def test_input_fn():
 	#iterator = val_dataset.make_one_shot_iterator()
-	iterator = tf.data.Iterator.from_structure(tr_data.output_types, tr_data.output_shapes)
+	#iterator = tf.data.Iterator.from_structure(tr_data.output_types, tr_data.output_shapes)
 
 	features, labels = iterator.get_next()
 
 	return features, labels
 
 
-feature_x = tf.feature_column.numeric_column('image',img_shape)
-
-
+feature_image = tf.feature_column.numeric_column('image', shape=[16384*3], dtype=tf.float32)
 num_hidden_units = [512, 256, 128]
-
-model = tf.estimator.DNNClassifier(feature_columns=[feature_x],
+model = tf.estimator.DNNClassifier(feature_columns=[feature_image],
 				hidden_units=num_hidden_units,
 				activation_fn=tf.nn.relu,
 				n_classes=num_classes,
 				model_dir="./checkpoints")
 
-model.train(input_fn=train_input_fn, steps=20000)
+model.train(input_fn=train_input_fn, steps=100)

@@ -15,13 +15,13 @@ for x in range(0,12500):
 	cropped_img = cv2.imread(DIR_PATH + "/Cat/"+str(x)+".jpg")
 	if cropped_img is not None:
 		cropped_img = crop_center(cropped_img, 128, 128)
-		cropped_img = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2GRAY)
+		# cropped_img = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2GRAY)  # make grayscale
 		scipy.misc.imsave(DIR_PATH + "/Cat/"+str(x)+".jpg", cropped_img)
 
 for x in range(0,12500):
         cropped_img = cv2.imread(DIR_PATH + "/Dog/"+str(x)+".jpg")
         if cropped_img is not None:
                 cropped_img = crop_center(cropped_img, 128, 128)
-                cropped_img = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2GRAY)
+                # cropped_img = cv2.cvtColor(cropped_img, cv2.COLOR_BGR2GRAY) # make grayscale
                 scipy.misc.imsave(DIR_PATH + "/Dog/"+str(x)+".jpg", cropped_img)
 
