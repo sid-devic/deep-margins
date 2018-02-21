@@ -5,4 +5,8 @@ PetImages/uncropped_cat
 *.pyc
 tutorial/training_data
 tutorial/testing_data
-checkpoints
+tutorial/generated_data
+checkpoints/
+tutorial/training_data_unedited
+tutorial/testing_data_unedited
+

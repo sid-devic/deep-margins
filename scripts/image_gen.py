@@ -14,11 +14,12 @@ from sklearn.preprocessing import normalize
 ## min dist: 15247.1165471                            ##
 ######################################################## 
 
-min_dist = 18000
+min_dist = 20000
 height = 128
 width = 128
-gen_per_img = 5
+gen_per_img = 2
 DIR_PATH = "/home/sid/deep-margins/tutorial/training_data/"
+GEN_DIR_PATH = "/home/sid/deep-margins/tutorial/generated_data/"
 
 # keep track of how many images we've augmented
 path_cat, dirs_cat, files_cat = os.walk(DIR_PATH + "cats/").next()
@@ -62,7 +63,7 @@ for cat_img in os.listdir(DIR_PATH + "cats/"):
         addition = im1arr + im2arr
         result_img = Image.fromarray(addition)
         # finally, we save our generated image
-        tmp_DIR_PATH = DIR_PATH + "cats/" + cat_img
+        tmp_DIR_PATH = GEN_DIR_PATH + "cats/" + cat_img
         tmp_DIR_PATH = tmp_DIR_PATH[:-4]
         tmp_DIR_PATH += "_" + str(x) + ".jpg"
         result_img.save(tmp_DIR_PATH)
@@ -108,7 +109,7 @@ for dog_img in os.listdir(DIR_PATH + "dogs/"):
         addition = im1arr + im2arr
         result_img = Image.fromarray(addition)
         # finally, we save our generated image
-        tmp_DIR_PATH = DIR_PATH + "dogs/" + dog_img
+        tmp_DIR_PATH = GEN_DIR_PATH + "dogs/" + dog_img
         tmp_DIR_PATH = tmp_DIR_PATH[:-4]
         tmp_DIR_PATH += "_" + str(x) + ".jpg"
         result_img.save(tmp_DIR_PATH)

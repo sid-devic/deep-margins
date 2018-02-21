@@ -100,8 +100,8 @@ print(len(val_labels_arr) + len(train_labels_arr))
 tr_data = tr_data.map(input_function)
 val_data = val_data.map(input_function)
 
-tr_data = tr_data.batch(1)
-val_data = val_data.batch(1)
+#tr_data = tr_data.batch(1)
+#val_data = val_data.batch(1)
 
 end = time.time()
 print("It took " + str(end - start) + " seconds to load the data.")

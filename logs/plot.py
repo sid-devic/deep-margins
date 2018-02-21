@@ -28,6 +28,7 @@ for i, s in enumerate(val_list):
 		val_list[i] = float(s)
 	else:
 		val_list[i] = "0"
+
 val_list = [x for x in val_list if x != "0"]
 
 print(val_list)
