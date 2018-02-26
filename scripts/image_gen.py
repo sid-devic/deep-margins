@@ -14,18 +14,26 @@ from sklearn.preprocessing import normalize
 ## min dist: 15247.1165471                            ##
 ######################################################## 
 
-min_dist = 20000
+min_dist = 40000
 height = 128
 width = 128
 gen_per_img = 2
 DIR_PATH = "/home/sid/deep-margins/tutorial/training_data/"
 GEN_DIR_PATH = "/home/sid/deep-margins/tutorial/generated_data/"
 
+
+
 # keep track of how many images we've augmented
 path_cat, dirs_cat, files_cat = os.walk(DIR_PATH + "cats/").next()
 path_dog, dirs_dog, files_dog = os.walk(DIR_PATH + "dogs/").next()
 file_count = len(files_cat + files_dog)
 count = 0
+
+def find_magnitude(arr):
+    running_sum = 0
+    for x in np.nditer(arr):
+        running_sum = running_sum + (x ** 2)
+    return sqrt(running_sum)
 
 # loop over all cat images
 for cat_img in os.listdir(DIR_PATH + "cats/"):
@@ -44,14 +52,16 @@ for cat_img in os.listdir(DIR_PATH + "cats/"):
         # we create a random image with the dimensions of the loaded image
         imarray = np.random.rand(height, width, 3) * 255
         # we normalize the image (corresponding 'unit' image)
-        img_min = imarray.min(axis=(1, 2), keepdims=True)
-        img_max = imarray.max(axis=(1, 2), keepdims=True)
-        imarray = (imarray - img_min)/(img_max - img_min)
+        #img_min = imarray.min(axis=(1, 2), keepdims=True)
+        #img_max = imarray.max(axis=(1, 2), keepdims=True)
+        #imarray = (imarray - img_min)/(img_max - img_min)
 
         # we 'scale' our unit image by a factor of half the minimum distance 
-        # between a cat and dog image (our least 'margin')
-        imarray = imarray * min_dist / 2
-        # we convert our nparray into a proper 3 channel img
+        # between a cat and dog image (our least 'margin'), after we normalize it
+        imarray = imarray / (find_magnitude(imarray))
+	imarray = imarray * min_dist / 2
+        print(imarray)
+	# we convert our nparray into a proper 3 channel img
         gen_img = Image.fromarray(imarray.astype('uint8')).convert('RGB')
         # we load both images back into an array
         im1arr = asarray(img)
@@ -90,13 +100,14 @@ for dog_img in os.listdir(DIR_PATH + "dogs/"):
         # we create a random image with the dimensions of the loaded image
         imarray = np.random.rand(height, width, 3) * 255
         # we normalize the image (corresponding 'unit' image)
-        img_min = imarray.min(axis=(1, 2), keepdims=True)
-        img_max = imarray.max(axis=(1, 2), keepdims=True)
-        imarray = (imarray - img_min)/(img_max - img_min)
-
+        #img_min = imarray.min(axis=(1, 2), keepdims=True)
+        #img_max = imarray.max(axis=(1, 2), keepdims=True)
+        #imarray = (imarray - img_min)/(img_max - img_min)
+	
         # we 'scale' our unit image by a factor of half the minimum distance 
-        # between a cat and dog image (our least 'margin')
-        imarray = imarray * min_dist / 2
+        # between a cat and dog image (our least 'margin'), after we normalize it
+        imarray = imarray / (find_magnitude(imarray))
+	imarray = imarray * min_dist / 2
         # we convert our nparray into a proper 3 channel img
         gen_img = Image.fromarray(imarray.astype('uint8')).convert('RGB')
         # we load both images back into an array
