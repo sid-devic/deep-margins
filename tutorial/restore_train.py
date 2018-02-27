@@ -24,7 +24,11 @@ num_classes = len(classes)
 validation_size = 0
 img_size = 128
 num_channels = 3
+# If train_path set to generated_data, we are not training on the original data, we are training
+# on generated fake data.
 train_path="generated_data"
+#train_path = "training_data"
+
 val_path = "testing_data"
 
 # We shall load all the training and validation images and labels into memory using openCV and use that during training

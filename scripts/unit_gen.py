@@ -42,11 +42,13 @@ def loop_dir(path, extension, save_path):
 			imarray = np.random.rand(height, width, 3) * 255
 			# we fro norm the image
 			imarray = imarray / (find_magnitude(imarray))
-			gen_img = Image.fromarray(imarray.astype('uint8')).convert('RGB')
-			read_again = asarray(gen_img)
-			result_img = Image.fromarray(read_again)
+			# now we immediately save so we don't lose our accuracy
+			np.save(save_path + extension + img[:-4] + "_" + str(x) + ".npy", imarray)
+			#gen_img = Image.fromarray(imarray.astype('uint8')).convert('RGB')
+			#read_again = asarray(gen_img)
+			#result_img = Image.fromarray(read_again)
 			# now we save our generated image
-			result_img.save(save_path + extension + img[:-4] + "_" + str(x) + ".jpg")
+			#result_img.save(save_path + extension + img[:-4] + "_" + str(x) + ".jpg")
 		end = time.time()
 		print(end-start)
 		# fix
