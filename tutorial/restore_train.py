@@ -267,4 +267,4 @@ def train(num_iteration):
     print(int(num_iteration))
     total_iterations += num_iteration
 
-train(num_iteration=10000)
+train(num_iteration=25000)
