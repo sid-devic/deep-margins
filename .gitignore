@@ -6,6 +6,7 @@ PetImages/uncropped_cat
 tutorial/training_data
 tutorial/testing_data
 tutorial/unit_data
+tutorial/gen2
 <<<<<<< HEAD
 tutorial/generated_data
 checkpoints/
