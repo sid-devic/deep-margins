@@ -9,8 +9,8 @@ import time
 import shutil
 import os
 
-min_dist = 5000
-gen_per_img = 4
+min_dist = 0
+gen_per_img = 1
 SAVE_PATH = "/home/sid/deep-margins/tutorial/generated_data/"
 UNIT_PATH = "/home/sid/deep-margins/tutorial/unit_data/"
 TRAIN_PATH = "/home/sid/deep-margins/tutorial/training_data/"

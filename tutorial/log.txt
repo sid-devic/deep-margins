@@ -1,0 +1,27 @@
+=================================
+TRAINING SET STATS:
+=================================
+Number of cat pics: 5818
+Number of dog pics: 5042
+incorrectly classified cats: 83
+98
+Corrupt image count: 23
+
+=================================
+MARGIN 5000:
+=================================
+Number of cat pics: 23269
+Number of dog pics: 20168
+incorrectly classified cats: 6799
+8344
+Corrupt image count: 0
+
+=================================
+MARGIN 0: (Should be 4x TRAINING)
+=================================
+Number of cat pics: 23269
+Number of dog pics: 20168
+incorrectly classified cats: 4499
+5346
+Corrupt image count: 0
+

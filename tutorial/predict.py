@@ -3,13 +3,17 @@ import numpy as np
 import os,glob,cv2
 import sys,argparse
 
+# give the .ckpt model in the same dir as predict.py
+model_name = 'test_model_4032.ckpt'
+
 batch_size = 1000
 image_size=128
 num_channels=3
 cat_images = [[]]
 dog_images = [[]]
-TEST_DATA_DIR = "/home/sid/deep-margins/tutorial/training_data/"
+TEST_DATA_DIR = "/home/sid/deep-margins/tutorial/generated_data/"
 num = 0
+corrupt_img_count = 0
 
 for file in os.listdir(TEST_DATA_DIR + "/cats/"):
 	if len(cat_images[num]) >= batch_size:
@@ -20,6 +24,7 @@ for file in os.listdir(TEST_DATA_DIR + "/cats/"):
 	# Reading the image using OpenCV
 	image = cv2.imread(filename)
 	if image is None:
+		corrupt_img_count += 1
 		continue
 	# Resizing the image to our desired size and preprocessing will be done exactly as done during training
 	image = cv2.resize(image, (image_size, image_size),0,0, cv2.INTER_LINEAR)
@@ -36,6 +41,7 @@ for file in os.listdir(TEST_DATA_DIR + "/dogs/"):
 	# Reading the image using OpenCV
 	image = cv2.imread(filename)
 	if image is None:
+		corrupt_img_count += 1
 		continue
 	# Resizing the image to our desired size and preprocessing will be done exactly as done during training
 	image = cv2.resize(image, (image_size, image_size),0,0, cv2.INTER_LINEAR)
@@ -45,9 +51,9 @@ for file in os.listdir(TEST_DATA_DIR + "/dogs/"):
 ## Let us restore the saved model 
 sess = tf.Session()
 # Step-1: Recreate the network graph. At this step only graph is created.
-saver = tf.train.import_meta_graph('test_model_5460.ckpt.meta')
+saver = tf.train.import_meta_graph(model_name + '.meta')
 # Step-2: Now let's load the weights saved using the restore method.
-saver.restore(sess,'test_model_5460.ckpt')
+saver.restore(sess, model_name)
 
 # Accessing the default graph which we have restored
 graph = tf.get_default_graph()
@@ -106,3 +112,4 @@ for x in dog_results:
 		count += 1
 
 print(count)
+print("Corrupt image count: " + str(corrupt_img_count))

@@ -246,7 +246,6 @@ def train(num_iteration):
         x_batch, y_true_batch, _, cls_batch = data.train.next_batch(batch_size)
         x_valid_batch, y_valid_batch, _, valid_cls_batch = data.valid.next_batch(batch_size)
 
-        
         feed_dict_tr = {x: x_batch,
                            y_true: y_true_batch}
         feed_dict_val = {x: x_valid_batch,
@@ -265,4 +264,4 @@ def train(num_iteration):
     print(int(num_iteration))
     total_iterations += num_iteration
 
-train(num_iteration=10000)
+train(num_iteration=40000)
