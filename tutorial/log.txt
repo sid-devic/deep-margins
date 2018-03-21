@@ -1,27 +1,121 @@
-=================================
-TRAINING SET STATS:
-=================================
-Number of cat pics: 5818
-Number of dog pics: 5042
-incorrectly classified cats: 83
-98
-Corrupt image count: 23
+0
+======
+Number of cat pics: 29086
+Number of dog pics: 25210
+Cat Accuracy: 98.52162552430723
+Incorrectly classified cats: 430
+Dog Accuracy: 99.68266560888536
+Incorrectly classified dogs: 80
 
-=================================
-MARGIN 5000:
-=================================
-Number of cat pics: 23269
-Number of dog pics: 20168
-incorrectly classified cats: 6799
-8344
-Corrupt image count: 0
+Total Accuracy: 99.06070428760866
+Corrupt image count (irrelevant): 0
 
-=================================
-MARGIN 0: (Should be 4x TRAINING)
-=================================
-Number of cat pics: 23269
-Number of dog pics: 20168
-incorrectly classified cats: 4499
-5346
-Corrupt image count: 0
+
+18,000
+=======
+Number of cat pics: 29086
+Number of dog pics: 25210
+Cat Accuracy: 68.45561438492746
+Incorrectly classified cats: 9175
+Dog Accuracy: 89.58746529155097
+Incorrectly classified dogs: 2625
+
+Total Accuracy: 78.26727567408281
+Corrupt image count (irrelevant): 0
+
+9,000
+=======
+Number of cat pics: 29086
+Number of dog pics: 25210
+Cat Accuracy: 80.82582685828234
+Incorrectly classified cats: 5577
+Dog Accuracy: 94.60134867116224
+Incorrectly classified dogs: 1361
+
+Total Accuracy: 87.22189479888021
+Corrupt image count (irrelevant): 0
+
+4,500
+======
+Number of cat pics: 29086
+Number of dog pics: 25210
+Cat Accuracy: 88.17300419445782
+Incorrectly classified cats: 3440
+Dog Accuracy: 96.90995636652121
+Incorrectly classified dogs: 779
+
+Total Accuracy: 92.2296301753352
+Corrupt image count (irrelevant): 0
+
+2,250
+======
+Number of cat pics: 29086
+Number of dog pics: 25210
+Cat Accuracy: 91.71078869559238
+Incorrectly classified cats: 2411
+Dog Accuracy: 97.96112653708846
+Incorrectly classified dogs: 514
+
+Total Accuracy: 94.61286282599086
+Corrupt image count (irrelevant): 0
+
+1,125
+======
+Number of cat pics: 29086
+Number of dog pics: 25210
+Cat Accuracy: 94.34435811043113
+Incorrectly classified cats: 1645
+Dog Accuracy: 98.70686235620785
+Incorrectly classified dogs: 326
+
+Total Accuracy: 96.36989833505231
+Corrupt image count (irrelevant): 0
+
+562.5
+======
+Number of cat pics: 29086
+Number of dog pics: 25210
+Cat Accuracy: 96.76132847418002
+Incorrectly classified cats: 942
+Dog Accuracy: 99.45259817532725
+Incorrectly classified dogs: 138
+
+Total Accuracy: 98.01090319728894
+Corrupt image count (irrelevant): 0
+
+281.25
+======
+Number of cat pics: 29086
+Number of dog pics: 25210
+Cat Accuracy: 98.3325311146256
+Incorrectly classified cats: 485
+Dog Accuracy: 99.67076556921856
+Incorrectly classified dogs: 83
+
+Total Accuracy: 98.95388242227789
+Corrupt image count (irrelevant): 0
+
+140.625
+=======
+Number of cat pics: 29086
+Number of dog pics: 25210
+Cat Accuracy: 98.47693048201884
+Incorrectly classified cats: 443
+Dog Accuracy: 99.68266560888536
+Incorrectly classified dogs: 80
+
+Total Accuracy: 99.03676145572418
+Corrupt image count (irrelevant): 0
+
+100
+======
+Number of cat pics: 29086
+Number of dog pics: 25210
+Cat Accuracy: 98.50787320360311
+Incorrectly classified cats: 434
+Dog Accuracy: 99.68266560888536
+Incorrectly classified dogs: 80
+
+Total Accuracy: 99.05333726241344
+Corrupt image count (irrelevant): 0
 

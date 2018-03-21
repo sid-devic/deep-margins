@@ -102,14 +102,20 @@ dog_results = [j for i in dog_results for j in i]
 print("Number of cat pics: " + str(len(cat_results)))
 print("Number of dog pics: " + str(len(dog_results)))
 
-count = 0
+count_cat = 0
 for x in cat_results:
 	if x[0] > x[1]:
-		count += 1
-print("incorrectly classified cats: " + str(count))
+		count_cat += 1
+print('Cat Accuracy: ' + str(100 - (100 * count_cat /len(cat_results))))
+print('Incorrectly classified cats: ' + str(count_cat))
+count_dog = 0
 for x in dog_results:
 	if x[0] < x[1]:
-		count += 1
+		count_dog += 1
 
-print(count)
-print("Corrupt image count: " + str(corrupt_img_count))
+print('Dog Accuracy: ' + str(100 - (100 * count_dog / len(dog_results))))
+print('Incorrectly classified dogs: ' + str(count_dog))
+print('')
+print('Total Accuracy: ' + str(100 - (100 * (count_dog + count_cat) / (len(dog_results) + len(cat_results)))))
+
+print("Corrupt image count (irrelevant): " + str(corrupt_img_count))
