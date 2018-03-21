@@ -32,8 +32,11 @@ def loop_dir(path, extension, save_path):
 	for img in os.listdir(path):
 		# Check if valid img
 		checked_img = cv2.imread(path + img)
+		
 		if checked_img is None:
 			continue
+		
+		checked_img = cv2.cvtColor(checked_img, cv2.COLOR_BGR2RGB) 	
 		height, width = checked_img.shape[:2]	
 		start = time.time()
 		count += 1
