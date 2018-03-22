@@ -7,6 +7,8 @@ tutorial/training_data
 tutorial/testing_data
 tutorial/unit_data
 tutorial/gen2
+cifar/train
+cifar/test
 <<<<<<< HEAD
 tutorial/generated_data
 checkpoints/
