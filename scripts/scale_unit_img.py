@@ -9,11 +9,11 @@ import time
 import shutil
 import os
 
-min_dist = 100
+min_dist = 10000
 gen_per_img = 5
-SAVE_PATH = "/home/sid/deep-margins/tutorial/generated_data/"
-UNIT_PATH = "/home/sid/deep-margins/tutorial/unit_data/"
-TRAIN_PATH = "/home/sid/deep-margins/tutorial/training_data/"
+SAVE_PATH = "/home/sid/deep-margins/cifar/generated_data/"
+UNIT_PATH = "/home/sid/deep-margins/cifar/unit_data/"
+TRAIN_PATH = "/home/sid/deep-margins/cifar/train/"
 
 def loop_dir(path, extension, unit_path, save_path):
         # clear generated_data directory

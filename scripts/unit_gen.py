@@ -11,11 +11,11 @@ import time
 
 # We generate a preset number of "Random Unit Images" for each item
 # in our training set
-height = 128
-width = 128
+height = 32
+width = 32
 gen_per_img = 5
-DIR_PATH = "/home/sid/deep-margins/tutorial/training_data/"
-UNIT_DATA_PATH = "/home/sid/deep-margins/tutorial/unit_data/"
+DIR_PATH = "/home/sid/deep-margins/cifar/train/"
+UNIT_DATA_PATH = "/home/sid/deep-margins/cifar/unit_data/"
 
 ## Normalization helper func
 def find_magnitude(arr):
