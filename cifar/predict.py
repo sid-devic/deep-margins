@@ -4,14 +4,15 @@ import os,glob,cv2
 import sys,argparse
 
 # give the .ckpt model in the same dir as predict.py
-model_name = 'test_model_4032.ckpt'
+model = 3900
+model_name = 'test_model_' + str(model) + '.ckpt'
 
 batch_size = 1000
 image_size= 32
 num_channels=3
 cat_images = [[]]
 dog_images = [[]]
-TEST_DATA_DIR = "/home/sid/deep-margins/cifar/generated_data/"
+TEST_DATA_DIR = "/home/sid/deep-margins/cifar/generated_data"
 num = 0
 corrupt_img_count = 0
 
@@ -117,5 +118,3 @@ print('Dog Accuracy: ' + str(100 - (100 * count_dog / len(dog_results))))
 print('Incorrectly classified dogs: ' + str(count_dog))
 print('')
 print('Total Accuracy: ' + str(100 - (100 * (count_dog + count_cat) / (len(dog_results) + len(cat_results)))))
-
-print("Corrupt image count (irrelevant): " + str(corrupt_img_count))

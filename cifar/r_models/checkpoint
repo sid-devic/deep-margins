@@ -1,0 +1,6 @@
+model_checkpoint_path: "test_model_221.ckpt"
+all_model_checkpoint_paths: "test_model_851.ckpt"
+all_model_checkpoint_paths: "test_model_859.ckpt"
+all_model_checkpoint_paths: "test_model_792.ckpt"
+all_model_checkpoint_paths: "test_model_962.ckpt"
+all_model_checkpoint_paths: "test_model_221.ckpt"

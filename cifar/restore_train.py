@@ -5,6 +5,7 @@ from datetime import timedelta
 import math
 import random
 import numpy as np
+from random import randint
 
 #Adding Seed so that random initialization is consistent
 from numpy.random import seed
@@ -13,8 +14,8 @@ from tensorflow import set_random_seed
 set_random_seed(2)
 
 
-batch_size = 128
-restore_model_id = 5460
+batch_size = 256
+restore_model_id = 4680
 #Prepare input data
 classes = ['dogs','cats']
 num_classes = len(classes)
@@ -22,14 +23,14 @@ num_classes = len(classes)
 # 20% of the data will automatically be used for validation
 # We've modified this so it pulls from training and testing_data respectively
 validation_size = 0
-img_size = 128
+img_size = 32
 num_channels = 3
 # If train_path set to generated_data, we are not training on the original data, we are training
 # on generated fake data.
 train_path="generated_data"
 #train_path = "training_data"
 
-val_path = "testing_data"
+val_path = "test"
 
 # We shall load all the training and validation images and labels into memory using openCV and use that during training
 data = dataset.read_train_sets(train_path, val_path, img_size, classes)
@@ -243,7 +244,7 @@ total_iterations = 0
 saver = tf.train.Saver()
 def train(num_iteration):
     global total_iterations
-    saver.restore(session, "models/test_model_"+str(restore_model_id)+".ckpt")   
+    saver.restore(session, "test_model_"+str(restore_model_id)+".ckpt")   
     for i in range(total_iterations,
                    total_iterations + num_iteration):
 
@@ -261,9 +262,10 @@ def train(num_iteration):
         if i % int(data.train.num_examples/batch_size) == 0: 
             val_loss = session.run(cost, feed_dict=feed_dict_val)
             epoch = int(i / int(data.train.num_examples/batch_size))    
-            
+            rand_num = randint(100,1000)
+            saver.save(session, "r_models/test_model"+"_"+str(rand_num)+".ckpt")
             show_progress(epoch, feed_dict_tr, feed_dict_val, val_loss)    
-
+            print(rand_num)
     print(int(num_iteration))
     total_iterations += num_iteration
 

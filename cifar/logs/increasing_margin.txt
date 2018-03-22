@@ -1,0 +1,63 @@
+40
+Training Epoch 8 --- Training Accuracy: 100.0%, Validation Accuracy:  81.2%,  Validation Loss: 1.081
+5467
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 99.99599607615463
+Incorrectly classified cats: 2
+Dog Accuracy: 99.99599607615463
+Incorrectly classified dogs: 2
+
+Total Accuracy: 99.99599607615463
+=====================================================================================================
+100
+Training Epoch 8 --- Training Accuracy: 100.0%, Validation Accuracy:  81.2%,  Validation Loss: 1.000
+5467
+
+train:
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 100.0
+Incorrectly classified cats: 0
+Dog Accuracy: 100.0
+Incorrectly classified dogs: 0
+
+Total Accuracy: 100.0
+
+test:
+Number of cat pics: 1000
+Number of dog pics: 1000
+Cat Accuracy: 75.6
+Incorrectly classified cats: 244
+Dog Accuracy: 76.2
+Incorrectly classified dogs: 238
+
+Total Accuracy: 75.9
+=====================================================================================================
+250
+Training Epoch 8 --- Training Accuracy: 100.0%, Validation Accuracy:  76.6%,  Validation Loss: 1.125
+6248
+
+train:
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 99.41943104242158
+Incorrectly classified cats: 290
+Dog Accuracy: 99.9099117134792
+Incorrectly classified dogs: 45
+
+Total Accuracy: 99.6646713779504
+
+test:
+Number of cat pics: 1000
+Number of dog pics: 1000
+Cat Accuracy: 68.3
+Incorrectly classified cats: 317
+Dog Accuracy: 78.6
+Incorrectly classified dogs: 214
+
+Total Accuracy: 73.45
+====================================================================================================
+500
+

@@ -1,0 +1,113 @@
+Training Epoch 57 --- Training Accuracy: 100.0%, Validation Accuracy:  77.3%,  Validation Loss: 1.034
+4368
+
+0
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 99.03905827711156
+Incorrectly classified cats: 480
+Dog Accuracy: 96.97903945866949
+Incorrectly classified dogs: 1509
+
+Total Accuracy: 98.00904886789053
+
+25 
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 96.11419190806991
+Incorrectly classified cats: 1941
+Dog Accuracy: 91.45362455206102
+Incorrectly classified dogs: 4269
+
+Total Accuracy: 93.78390823006546
+
+125
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 97.32738083321655
+Incorrectly classified cats: 1335
+Dog Accuracy: 93.6017296951012
+Incorrectly classified dogs: 3196
+
+Total Accuracy: 95.46455526415888
+
+62.5
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 98.08412243999119
+Incorrectly classified cats: 957
+Dog Accuracy: 95.25535024323837
+Incorrectly classified dogs: 2370
+
+Total Accuracy: 96.66973634161478
+
+31.25
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 99.03905827711156
+Incorrectly classified cats: 480
+Dog Accuracy: 96.97903945866949
+Incorrectly classified dogs: 1509
+
+Total Accuracy: 98.00904886789053
+
+46.875
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 98.2342695841925
+Incorrectly classified cats: 882
+Dog Accuracy: 95.7718564192909
+Incorrectly classified dogs: 2112
+
+Total Accuracy: 97.00306300174171
+
+39.0625
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 98.48251286260535
+Incorrectly classified cats: 758
+Dog Accuracy: 96.3183920241837
+Incorrectly classified dogs: 1839
+
+Total Accuracy: 97.40045244339453
+
+35.15625
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 98.6807070929511
+Incorrectly classified cats: 659
+Dog Accuracy: 96.65071770334929
+Incorrectly classified dogs: 1673
+
+Total Accuracy: 97.66571239815019
+
+33.203125
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 98.85487778022463
+Incorrectly classified cats: 572
+Dog Accuracy: 96.86292566715382
+Incorrectly classified dogs: 1567
+
+Total Accuracy: 97.85890172368921
+
+32.2265625
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 98.99301315288983
+Incorrectly classified cats: 503
+Dog Accuracy: 96.94500610598386
+Incorrectly classified dogs: 1526
+
+Total Accuracy: 97.96900962943685
+
+31.73828125
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 99.03105042942083
+Incorrectly classified cats: 484
+Dog Accuracy: 96.97303357290144
+Incorrectly classified dogs: 1512
+
+Total Accuracy: 98.00204200116114
+

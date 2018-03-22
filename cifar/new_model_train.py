@@ -13,7 +13,7 @@ from tensorflow import set_random_seed
 set_random_seed(2)
 
 
-batch_size = 128
+batch_size = 256
 
 #Prepare input data
 classes = ['dogs','cats']
