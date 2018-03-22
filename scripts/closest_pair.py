@@ -4,11 +4,11 @@ import os
 import time
 
 start = time.time()
-DIR_PATH ="/home/sid/deep-margins/tutorial/training_data"
-image_size = 128
+DIR_PATH ="/home/sid/deep-margins/cifar/train"
+image_size = 32
 
-min_cat_img = DIR_PATH + "/cats/2577.jpg"
-min_dog_img = DIR_PATH + "/dogs/976.jpg"
+min_cat_img = DIR_PATH + "/cats/9_cat.png"
+min_dog_img = DIR_PATH + "/dogs/999_dog.png"
 
 i1 = cv2.imread(min_cat_img)
 i2 = cv2.imread(min_dog_img)

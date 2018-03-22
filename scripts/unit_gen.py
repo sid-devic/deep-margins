@@ -13,7 +13,7 @@ import time
 # in our training set
 height = 32
 width = 32
-gen_per_img = 5
+gen_per_img = 10
 DIR_PATH = "/home/sid/deep-margins/cifar/train/"
 UNIT_DATA_PATH = "/home/sid/deep-margins/cifar/unit_data/"
 

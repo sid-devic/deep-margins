@@ -9,8 +9,8 @@ import time
 import shutil
 import os
 
-min_dist = 10000
-gen_per_img = 5
+min_dist = 1600
+gen_per_img = 10
 SAVE_PATH = "/home/sid/deep-margins/cifar/generated_data/"
 UNIT_PATH = "/home/sid/deep-margins/cifar/unit_data/"
 TRAIN_PATH = "/home/sid/deep-margins/cifar/train/"
@@ -57,7 +57,7 @@ def loop_dir(path, extension, unit_path, save_path):
                         
                         result_img = Image.fromarray(addition.astype('uint8')).convert('RGB')
                         # now we save our generated image
-                        result_img.save(save_path + extension + img[:-4] + "_" + str(x) + ".jpg")
+                        result_img.save(save_path + extension + img[:-4] + "_" + str(x) + ".png")
                 end = time.time()
                 print(end-start)
                 # fix

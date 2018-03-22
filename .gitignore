@@ -11,6 +11,8 @@ cifar/train
 cifar/test
 cifar/unit_data
 cifar/generated_data
+cifar/r_models
+cifar/models
 <<<<<<< HEAD
 tutorial/generated_data
 checkpoints/
