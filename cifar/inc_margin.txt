@@ -126,3 +126,62 @@ Total Accuracy: 89.48869892494645
 A reason our val accuracy may be slowly decaying is because the implicit minimum dist between images in the dataset is upper bounded by 469.484824036. (Using a script in deep-margins/scripts)
 So we are infusing at least some incorrect datapoints by increasing the margin to 800, as the actual limit to our increase should be 469.484824036/2 --- half the minimum distance between points.
 ====================================================================================================
+Train 962 on 1600 margin dataset:
+Training Epoch 11 --- Training Accuracy: 100.0%, Validation Accuracy:  73.4%,  Validation Loss: 1.804
+193
+
+On 1600 margin test:
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 99.56957818662289
+Incorrectly classified cats: 215
+Dog Accuracy: 99.89389601809773
+Incorrectly classified dogs: 53
+
+Total Accuracy: 99.73173710236031
+
+val:
+Number of cat pics: 1000
+Number of dog pics: 1000
+Cat Accuracy: 71.7
+Incorrectly classified cats: 283
+Dog Accuracy: 72.0
+Incorrectly classified dogs: 280
+
+Total Accuracy: 71.85
+=====================================================================================================
+Train 193 on 3200 dataset:
+Training Epoch 15 --- Training Accuracy: 100.0%, Validation Accuracy:  68.8%,  Validation Loss: 2.512
+901
+
+901 on 3200:
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 99.12914656363236
+Incorrectly classified cats: 435
+Dog Accuracy: 99.93593721847411
+Incorrectly classified dogs: 32
+
+Total Accuracy: 99.53254189105323
+
+901 on val:
+Number of cat pics: 1000
+Number of dog pics: 1000
+Cat Accuracy: 73.8
+Incorrectly classified cats: 262
+Dog Accuracy: 61.0
+Incorrectly classified dogs: 390
+
+Total Accuracy: 67.4
+=====================================================================================================
+Sanity check: 3900 (base) on 3200 margin dataset:
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 81.67604252167123
+Incorrectly classified cats: 9153
+Dog Accuracy: 42.08123961482253
+Incorrectly classified dogs: 28931
+
+Total Accuracy: 61.878641068246885
+=====================================================================================================

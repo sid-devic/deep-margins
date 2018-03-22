@@ -15,7 +15,7 @@ set_random_seed(2)
 
 
 batch_size = 256
-restore_model_id = 4680
+restore_model_id = 193
 #Prepare input data
 classes = ['dogs','cats']
 num_classes = len(classes)
