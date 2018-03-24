@@ -9,7 +9,7 @@ import time
 import shutil
 import os
 
-min_dist = 1600
+min_dist = 3200
 gen_per_img = 10
 SAVE_PATH = "/home/sid/deep-margins/cifar/generated_data/"
 UNIT_PATH = "/home/sid/deep-margins/cifar/unit_data/"

@@ -24,7 +24,7 @@ num_classes = len(classes)
 validation_size = 0
 img_size = 32
 num_channels = 3
-train_path="train"
+train_path="data_augmentation"
 val_path = "test"
 
 # We shall load all the training and validation images and labels into memory using openCV and use that during training
@@ -258,7 +258,7 @@ def train(num_iteration):
             epoch = int(i / int(data.train.num_examples/batch_size))    
             
             show_progress(epoch, feed_dict_tr, feed_dict_val, val_loss)    
-            saver.save(session, "models/test_model"+"_"+str(i)+".ckpt")
+            saver.save(session, "data_augmentation/models/test_model"+"_"+str(i)+".ckpt")
             print(int(i))
 
     print(int(num_iteration))
