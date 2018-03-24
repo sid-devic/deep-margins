@@ -1,0 +1,37 @@
+Training Epoch 1 --- Training Accuracy:  53.5%, Validation Accuracy:  50.0%,  Validation Loss: 0.693
+0
+Training Epoch 2 --- Training Accuracy:  70.3%, Validation Accuracy:  69.1%,  Validation Loss: 0.589
+390
+Training Epoch 3 --- Training Accuracy:  75.4%, Validation Accuracy:  72.5%,  Validation Loss: 0.551
+780
+Training Epoch 4 --- Training Accuracy:  86.3%, Validation Accuracy:  74.1%,  Validation Loss: 0.568
+1170
+Training Epoch 5 --- Training Accuracy:  93.0%, Validation Accuracy:  73.9%,  Validation Loss: 0.701
+1560
+Training Epoch 6 --- Training Accuracy:  98.4%, Validation Accuracy:  73.7%,  Validation Loss: 0.884
+1950
+Training Epoch 7 --- Training Accuracy:  99.2%, Validation Accuracy:  72.9%,  Validation Loss: 1.072
+2340
+Training Epoch 8 --- Training Accuracy:  99.2%, Validation Accuracy:  72.9%,  Validation Loss: 1.179
+2730
+Training Epoch 9 --- Training Accuracy:  98.0%, Validation Accuracy:  73.4%,  Validation Loss: 1.366
+3120
+Training Epoch 10 --- Training Accuracy:  99.6%, Validation Accuracy:  73.4%,  Validation Loss: 1.263
+3510
+Training Epoch 11 --- Training Accuracy:  98.8%, Validation Accuracy:  71.9%,  Validation Loss: 1.633
+3900
+Training Epoch 12 --- Training Accuracy: 100.0%, Validation Accuracy:  74.6%,  Validation Loss: 1.251
+4290
+Training Epoch 13 --- Training Accuracy: 100.0%, Validation Accuracy:  74.3%,  Validation Loss: 1.428
+4680
+Training Epoch 14 --- Training Accuracy: 100.0%, Validation Accuracy:  74.3%,  Validation Loss: 1.534
+5070
+Training Epoch 15 --- Training Accuracy: 100.0%, Validation Accuracy:  73.8%,  Validation Loss: 1.143
+5460
+Training Epoch 16 --- Training Accuracy: 100.0%, Validation Accuracy:  74.2%,  Validation Loss: 1.321
+5850
+Training Epoch 17 --- Training Accuracy: 100.0%, Validation Accuracy:  74.3%,  Validation Loss: 1.431
+6240
+Training Epoch 18 --- Training Accuracy: 100.0%, Validation Accuracy:  74.0%,  Validation Loss: 1.521
+6630
+

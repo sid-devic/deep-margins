@@ -1,0 +1,40 @@
+We train a new model on a fake dataset of 40 margin:
+
+Training Epoch 1 --- Training Accuracy:  53.5%, Validation Accuracy:  50.0%,  Validation Loss: 0.693
+0
+Training Epoch 2 --- Training Accuracy:  71.9%, Validation Accuracy:  68.7%,  Validation Loss: 0.589
+390
+Training Epoch 3 --- Training Accuracy:  78.5%, Validation Accuracy:  74.0%,  Validation Loss: 0.530
+780
+Training Epoch 4 --- Training Accuracy:  86.3%, Validation Accuracy:  73.8%,  Validation Loss: 0.573
+1170
+Training Epoch 5 --- Training Accuracy:  93.0%, Validation Accuracy:  73.9%,  Validation Loss: 0.719
+1560
+Training Epoch 6 --- Training Accuracy:  97.3%, Validation Accuracy:  72.9%,  Validation Loss: 0.923
+1950
+Training Epoch 7 --- Training Accuracy:  99.6%, Validation Accuracy:  72.9%,  Validation Loss: 1.108
+2340
+Training Epoch 8 --- Training Accuracy: 100.0%, Validation Accuracy:  72.2%,  Validation Loss: 1.352
+2730
+Training Epoch 9 --- Training Accuracy: 100.0%, Validation Accuracy:  72.3%,  Validation Loss: 1.322
+3120
+Training Epoch 10 --- Training Accuracy: 100.0%, Validation Accuracy:  72.5%,  Validation Loss: 1.539
+3510
+Training Epoch 11 --- Training Accuracy:  87.5%, Validation Accuracy:  68.8%,  Validation Loss: 1.886
+3900
+Training Epoch 12 --- Training Accuracy: 100.0%, Validation Accuracy:  72.6%,  Validation Loss: 1.362
+4290
+Training Epoch 13 --- Training Accuracy: 100.0%, Validation Accuracy:  72.9%,  Validation Loss: 1.496
+4680
+Training Epoch 14 --- Training Accuracy: 100.0%, Validation Accuracy:  73.3%,  Validation Loss: 1.595
+5070
+Training Epoch 15 --- Training Accuracy: 100.0%, Validation Accuracy:  73.1%,  Validation Loss: 1.684
+5460
+Training Epoch 16 --- Training Accuracy: 100.0%, Validation Accuracy:  73.4%,  Validation Loss: 1.766
+5850
+Training Epoch 17 --- Training Accuracy: 100.0%, Validation Accuracy:  73.2%,  Validation Loss: 1.840
+6240
+Training Epoch 18 --- Training Accuracy: 100.0%, Validation Accuracy:  73.1%,  Validation Loss: 1.915
+6630
+
+

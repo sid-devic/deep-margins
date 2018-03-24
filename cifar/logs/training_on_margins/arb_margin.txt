@@ -1,0 +1,17 @@
+Training Epoch 1 --- Training Accuracy:  53.5%, Validation Accuracy:  50.0%,  Validation Loss: 0.693
+0
+Training Epoch 2 --- Training Accuracy:  53.5%, Validation Accuracy:  50.0%,  Validation Loss: 0.693
+390
+Training Epoch 3 --- Training Accuracy:  53.5%, Validation Accuracy:  50.0%,  Validation Loss: 0.693
+780
+Training Epoch 4 --- Training Accuracy:  53.5%, Validation Accuracy:  50.0%,  Validation Loss: 0.693
+1170
+Training Epoch 5 --- Training Accuracy:  53.5%, Validation Accuracy:  50.0%,  Validation Loss: 0.693
+1560
+Training Epoch 6 --- Training Accuracy:  53.5%, Validation Accuracy:  50.0%,  Validation Loss: 0.693
+1950
+Training Epoch 7 --- Training Accuracy:  53.5%, Validation Accuracy:  50.0%,  Validation Loss: 0.693
+2340
+.
+.
+.
