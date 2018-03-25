@@ -1,0 +1,142 @@
+8970 on val:
+
+Number of cat pics: 1000
+Number of dog pics: 1000
+Cat Accuracy: 67.3
+Incorrectly classified cats: 327
+Dog Accuracy: 80.5
+Incorrectly classified dogs: 195
+
+Total Accuracy: 73.9
+
+====================================================================================================
+0 margin original trainset:
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 94.16227903345279
+Incorrectly classified cats: 2916
+Dog Accuracy: 98.7808051890853
+Incorrectly classified dogs: 609
+
+Total Accuracy: 96.47154211126904
+
+=====================================================================================================
+200 margin on original trainset
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 90.56475345838922
+Incorrectly classified cats: 4713
+Dog Accuracy: 95.61770535124423
+Incorrectly classified dogs: 2189
+
+Total Accuracy: 93.09122940481672
+
+==================================================================================================
+100 margin on original trainset
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 92.34049368381014
+Incorrectly classified cats: 3826
+Dog Accuracy: 97.07713559288102
+Incorrectly classified dogs: 1460
+
+Total Accuracy: 94.70881463834557
+
+=================================================================================================
+50 margin on original trainset
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 93.30944325438931
+Incorrectly classified cats: 3342
+Dog Accuracy: 97.98802826770235
+Incorrectly classified dogs: 1005
+
+Total Accuracy: 95.64873576104583
+
+==================================================================================================
+32 margin
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 94.1342515665352
+Incorrectly classified cats: 2930
+Dog Accuracy: 98.77279734139456
+Incorrectly classified dogs: 613
+
+Total Accuracy: 96.45352445396489
+
+===================================================================================================
+16 margin
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 94.16227903345279
+Incorrectly classified cats: 2916
+Dog Accuracy: 98.7808051890853
+Incorrectly classified dogs: 609
+
+Total Accuracy: 96.47154211126904
+===================================================================================================
+25 margin
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 94.16227903345279
+Incorrectly classified cats: 2916
+Dog Accuracy: 98.7808051890853
+Incorrectly classified dogs: 609
+
+Total Accuracy: 96.47154211126904
+
+==================================================================================================
+30 margin
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 94.16227903345279
+Incorrectly classified cats: 2916
+Dog Accuracy: 98.7808051890853
+Incorrectly classified dogs: 609
+
+Total Accuracy: 96.47154211126904
+
+====================================================================================================
+31 mar
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 94.16227903345279
+Incorrectly classified cats: 2916
+Dog Accuracy: 98.7808051890853
+Incorrectly classified dogs: 609
+
+Total Accuracy: 96.47154211126904
+
+====================================================================================================
+31.5
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 94.16227903345279
+Incorrectly classified cats: 2916
+Dog Accuracy: 98.7808051890853
+Incorrectly classified dogs: 609
+
+Total Accuracy: 96.47154211126904
+
+===================================================================================================
+31.73828125
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 94.1602770715301
+Incorrectly classified cats: 2917
+Dog Accuracy: 98.77479930331725
+Incorrectly classified dogs: 612
+
+Total Accuracy: 96.46753818742367
+
+31.5 <= marg <= 31.73828125

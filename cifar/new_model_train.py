@@ -14,6 +14,7 @@ set_random_seed(2)
 
 
 batch_size = 256
+val_batch_size = 2000
 
 #Prepare input data
 classes = ['dogs','cats']
@@ -24,7 +25,7 @@ num_classes = len(classes)
 validation_size = 0
 img_size = 32
 num_channels = 3
-train_path="data_augmentation"
+train_path="generated_data"
 val_path = "test"
 
 # We shall load all the training and validation images and labels into memory using openCV and use that during training
@@ -244,7 +245,7 @@ def train(num_iteration):
                    total_iterations + num_iteration):
 
         x_batch, y_true_batch, _, cls_batch = data.train.next_batch(batch_size)
-        x_valid_batch, y_valid_batch, _, valid_cls_batch = data.valid.next_batch(batch_size)
+        x_valid_batch, y_valid_batch, _, valid_cls_batch = data.valid.next_batch(val_batch_size)
 
         feed_dict_tr = {x: x_batch,
                            y_true: y_true_batch}
@@ -258,7 +259,7 @@ def train(num_iteration):
             epoch = int(i / int(data.train.num_examples/batch_size))    
             
             show_progress(epoch, feed_dict_tr, feed_dict_val, val_loss)    
-            saver.save(session, "data_augmentation/models/test_model"+"_"+str(i)+".ckpt")
+            saver.save(session, "models/test_model"+"_"+str(i)+".ckpt")
             print(int(i))
 
     print(int(num_iteration))
