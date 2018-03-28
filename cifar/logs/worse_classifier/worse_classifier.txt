@@ -1,0 +1,60 @@
+model 195:
+
+val:
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 86.8991611779544
+Incorrectly classified cats: 6544
+Dog Accuracy: 39.83904226141619
+Incorrectly classified dogs: 30051
+
+Total Accuracy: 63.36910171968529
+
+search for margin:
+32:
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 86.89115333026366
+Incorrectly classified cats: 6548
+Dog Accuracy: 39.84304618526156
+Incorrectly classified dogs: 30049
+
+Total Accuracy: 63.36709975776261
+
+
+31:
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 86.8991611779544
+Incorrectly classified cats: 6544
+Dog Accuracy: 39.83904226141619
+Incorrectly classified dogs: 30051
+
+Total Accuracy: 63.36910171968529
+
+
+31.5:
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 86.8991611779544
+Incorrectly classified cats: 6544
+Dog Accuracy: 39.83904226141619
+Incorrectly classified dogs: 30051
+
+Total Accuracy: 63.36910171968529
+
+31.75:
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 86.89715921603171
+Incorrectly classified cats: 6545
+Dog Accuracy: 39.83904226141619
+Incorrectly classified dogs: 30051
+
+Total Accuracy: 63.368100738723946
+
+31.5 <= m <= 31.75

@@ -1,5 +1,0 @@
-Training Epoch 52 --- Training Accuracy:  96.5%, Validation Accuracy:  79.3%,  Validation Loss: 0.615
-1989
-
-val:
-

@@ -45,7 +45,7 @@ def graph_all(files):
 # ------------------------------------------------------------
 
 # graph
-DIR = "/home/sid/deep-margins/cifar/logs/training_on_margins"
+DIR = "/home/sid/deep-margins/cifar/logs/training_on_margins/"
 file_list = []
 os.chdir(DIR)
 for file in glob.glob("*.txt"):
@@ -61,5 +61,5 @@ for key, value in all_vals.iteritems():
 plt.legend(legend, loc='upper left')
 plt.xlabel("epoch")
 plt.ylabel("Validation accuracy")
-plt.savefig(DIR + "graph.png")
+plt.savefig(DIR + "graph.png", bbox_inches='tight')
 plt.show()

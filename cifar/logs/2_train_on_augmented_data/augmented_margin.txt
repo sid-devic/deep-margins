@@ -1,0 +1,51 @@
+Training Epoch 60 --- Training Accuracy:  98.4%, Validation Accuracy:  70.1%,  Validation Loss: 1.132
+23010
+
+0 margin train:
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 86.42469620227823
+Incorrectly classified cats: 6781
+Dog Accuracy: 94.87898140177374
+Incorrectly classified dogs: 2558
+
+Total Accuracy: 90.65183880202599
+
+
+32:
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 86.40267462112871
+Incorrectly classified cats: 6792
+Dog Accuracy: 94.86897159216032
+Incorrectly classified dogs: 2563
+
+Total Accuracy: 90.63582310664451
+
+
+31.5
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 86.42269424035555
+Incorrectly classified cats: 6782
+Dog Accuracy: 94.87898140177374
+Incorrectly classified dogs: 2558
+
+Total Accuracy: 90.65083782106464
+
+30:
+
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 86.42469620227823
+Incorrectly classified cats: 6781
+Dog Accuracy: 94.87898140177374
+Incorrectly classified dogs: 2558
+
+Total Accuracy: 90.65183880202599
+
+
+30 <= m <= 31.5
