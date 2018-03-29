@@ -1,0 +1,6 @@
+Took 1398.30584311 seconds
+Minimum eucl. dist: 369.4225223236937
+/home/sid/deep-margins/cifar/train/cats/42738_cat.png
+/home/sid/deep-margins/cifar/train/dogs/43005_dog.png
+Num updated: 26
+
