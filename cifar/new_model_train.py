@@ -12,7 +12,6 @@ seed(1)
 from tensorflow import set_random_seed
 set_random_seed(2)
 
-
 batch_size = 256
 val_batch_size = 2000
 
@@ -25,7 +24,7 @@ num_classes = len(classes)
 validation_size = 0
 img_size = 32
 num_channels = 3
-train_path="data_augmentation"
+train_path="train"
 val_path = "test"
 
 # We shall load all the training and validation images and labels into memory using openCV and use that during training

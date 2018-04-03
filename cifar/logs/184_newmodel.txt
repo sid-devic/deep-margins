@@ -1,6 +1,0 @@
-184 margin
-
-Training Epoch 13 --- Training Accuracy: 100.0%, Validation Accuracy:  74.7%,  Validation Loss: 1.373
-4680
-
-
