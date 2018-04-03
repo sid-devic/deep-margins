@@ -24,7 +24,11 @@ def dist(i1,i2):
 # we don't know scale of distance, so we set a random distance as the min 
 min_dist = dist(i1,i2)
 
+_, _, file_num = os.walk(DIR_PATH + "/cats/").next()
+file_num = len(file_num)
+count = 0
 for cat_img_path in os.listdir(DIR_PATH + "/cats/"):
+    count += 1
     img_1 = cv2.imread(DIR_PATH + "/cats/" + cat_img_path)
     print("Cat img: " + cat_img_path)
     for dog_img_path in os.listdir(DIR_PATH + "/dogs/"):
@@ -40,6 +44,7 @@ for cat_img_path in os.listdir(DIR_PATH + "/cats/"):
 	    min_dog_img = DIR_PATH + "/dogs/" + dog_img_path
             print(min_dist)
             print("Cat img: " + cat_img_path + ", Dog img: " + dog_img_path)
+    print(str(count) + "/" + str(file_num))
 
 end = time.time()
 # output results

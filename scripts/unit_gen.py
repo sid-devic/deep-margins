@@ -13,7 +13,6 @@ import time
 # in our training set
 height = 32
 width = 32
-gen_per_img = 10
 DIR_PATH = "/home/sid/deep-margins/cifar/train/"
 UNIT_DATA_PATH = "/home/sid/deep-margins/cifar/unit_data/"
 
@@ -24,7 +23,7 @@ def find_magnitude(arr):
 		running_sum = running_sum + (x ** 2)
 	return sqrt(running_sum)
 
-def loop_dir(path, extension, save_path):
+def loop_dir(path, extension, save_path, gen_per_img):
 	path = path + extension
 	_, _, file_num = os.walk(path).next()
 	file_num = len(file_num)
@@ -59,8 +58,17 @@ def loop_dir(path, extension, save_path):
 
 	return 0
 
-print('Creating Cat imgs')
-c = loop_dir(DIR_PATH, "cats/", UNIT_DATA_PATH)
-print('Creating Dog imgs')
-d = loop_dir(DIR_PATH, "dogs/", UNIT_DATA_PATH)
-
+interior_gen_per_img = 20
+print('Creating interior n-sphere Cat imgs')
+c = loop_dir(DIR_PATH, "cats/", UNIT_DATA_PATH, interior_gen_per_img)
+print('Creating interior n-sphere Dog imgs')
+d = loop_dir(DIR_PATH, "dogs/", UNIT_DATA_PATH, interior_gen_per_img)
+'''
+boundary_gen_per_img = 10
+BOUNDARY_UNIT_DATA_PATH = "/home/sid/deep-margins/cifar/boundary_unit_data/"
+print('Creating boundary n-sphere Cat imgs')
+e = loop_dir(DIR_PATH, "cats/", BOUNDARY_UNIT_DATA_PATH, boundary_gen_per_img)
+print('Creating boundary n-sphere Dog imgs')
+e = loop_dir(DIR_PATH, "dogs/", BOUNDARY_UNIT_DATA_PATH, boundary_gen_per_img)
+'''
+print('Success')
