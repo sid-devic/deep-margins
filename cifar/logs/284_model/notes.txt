@@ -1,0 +1,34 @@
+284 margin interior points:
+(train)
+
+Number of cat pics: 99981
+Number of dog pics: 99981
+Cat Accuracy: 100.0
+Incorrectly classified cats: 0
+Dog Accuracy: 99.99899980996389
+Incorrectly classified dogs: 1
+
+Total Accuracy: 99.99949990498195
+
+
+(test)
+Number of cat pics: 1000
+Number of dog pics: 1000
+Cat Accuracy: 73.0
+Incorrectly classified cats: 270
+Dog Accuracy: 76.5
+Incorrectly classified dogs: 235
+
+Total Accuracy: 74.75
+
+294 margin interior + boundary points:
+Number of cat pics: 199961
+Number of dog pics: 199961
+Cat Accuracy: 99.87747610784103
+Incorrectly classified cats: 245
+Dog Accuracy: 99.92448527462855
+Incorrectly classified dogs: 151
+
+Total Accuracy: 99.90098069123479
+
+

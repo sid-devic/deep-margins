@@ -1,0 +1,59 @@
+Train:
+
+Number of cat pics: 99901
+Number of dog pics: 99901
+Cat Accuracy: 100.0
+Incorrectly classified cats: 0
+Dog Accuracy: 99.99799801803786
+Incorrectly classified dogs: 2
+
+Total Accuracy: 99.99899900901893
+
+
+val:
+
+Number of cat pics: 1000
+Number of dog pics: 1000
+Cat Accuracy: 74.5
+Incorrectly classified cats: 255
+Dog Accuracy: 76.2
+Incorrectly classified dogs: 238
+
+Total Accuracy: 75.35
+
+
+
+More data within margin of 184 (testing if all random vectors encompassed):
+Number of cat pics: 99981
+Number of dog pics: 99981
+Cat Accuracy: 99.93698802772526
+Incorrectly classified cats: 63
+Dog Accuracy: 99.93098688750862
+Incorrectly classified dogs: 69
+
+Total Accuracy: 99.93398745761695
+
+BOUNDARY margin data of 184:
+Number of cat pics: 99981
+Number of dog pics: 99981
+Cat Accuracy: 99.82996769386183
+Incorrectly classified cats: 170
+Dog Accuracy: 99.82596693371741
+Incorrectly classified dogs: 174
+
+Total Accuracy: 99.82796731378961
+
+
+
+Augmented Data: (rotate, zoom, random_elastic_distortion)
+Number of cat pics: 49951
+Number of dog pics: 49951
+Cat Accuracy: 76.82328682108466
+Incorrectly classified cats: 11577
+Dog Accuracy: 51.534503813737466
+Incorrectly classified dogs: 24209
+
+Total Accuracy: 64.17889531741106
+
+
+

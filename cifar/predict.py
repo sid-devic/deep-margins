@@ -4,7 +4,7 @@ import os,glob,cv2
 import sys,argparse
 
 # give the .ckpt model in the same dir as predict.py
-model = 4563
+model = 10153
 model_name = 'test_model_' + str(model) + '.ckpt'
 
 batch_size = 5000
@@ -12,7 +12,7 @@ image_size= 32
 num_channels=3
 cat_images = [[]]
 dog_images = [[]]
-TEST_DATA_DIR = "/home/sid/deep-margins/cifar/train"
+TEST_DATA_DIR = "/home/sid/deep-margins/cifar/generated_data"
 num = 0
 corrupt_img_count = 0
 

@@ -24,7 +24,7 @@ num_classes = len(classes)
 validation_size = 0
 img_size = 32
 num_channels = 3
-train_path="train"
+train_path="generated_data"
 val_path = "test"
 
 # We shall load all the training and validation images and labels into memory using openCV and use that during training

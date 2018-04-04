@@ -80,8 +80,8 @@ def loop_dir(path, extension, unit_path, save_path, interior, gen_per_img):
         return 0
 '''
 # generate 20 interior and 10 boundary images per image in our training set
-c = loop_dir(TRAIN_PATH, "cats/", UNIT_PATH, SAVE_PATH, True, 0)
-d = loop_dir(TRAIN_PATH, "dogs/", UNIT_PATH, SAVE_PATH, True, 0)
+c = loop_dir(TRAIN_PATH, "cats/", UNIT_PATH, SAVE_PATH, True, 20)
+d = loop_dir(TRAIN_PATH, "dogs/", UNIT_PATH, SAVE_PATH, True, 20)
 '''
 e = loop_dir(TRAIN_PATH, "cats/", UNIT_PATH, SAVE_PATH, False, 20)
 f = loop_dir(TRAIN_PATH, "dogs/", UNIT_PATH, SAVE_PATH, False, 20)

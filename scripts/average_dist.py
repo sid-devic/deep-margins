@@ -41,11 +41,13 @@ for cat_img_path in os.listdir(DIR_PATH + "/cats/"):
     print(str(count) + "/" + str(file_num))
 
 end = time.time()
-average = sum(distances) / float(size(distances))
+print(distances)
+average = sum(distances) / float(len(distances))
 median = np.median(distances)
+percent = np.percentile(distances, 99)
 # output results
 print("Took " + str(end-start) + " seconds")
 print("Average eucl. dist: " + str(average))
 print("Median dist: " + str(median))
-
+print("99th Percentile: " + str(percent))
 

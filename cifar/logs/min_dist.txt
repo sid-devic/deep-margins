@@ -4,3 +4,12 @@ Minimum eucl. dist: 369.4225223236937
 /home/sid/deep-margins/cifar/train/dogs/43005_dog.png
 Num updated: 26
 
+
+Average / Median dist:
+
+566.4627083930592, 570.516432716885, 565.3945525029402, 577.6426230810881, 573.8989458084062]
+Took 1393.290905 seconds
+Average eucl. dist: 569.0284659225576
+Median dist: 569.3601672052586
+99th Percentile: 584.1789109510887
+
