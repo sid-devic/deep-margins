@@ -54,8 +54,8 @@ filter_size_conv2 = 3
 num_filters_conv2 = 64
 
 filter_size_conv3 = 3
-num_filters_conv3 = 128 #64
-
+num_filters_conv3 = 64 #64
+'''
 # added
 filter_size_conv4 = 3
 num_filters_conv4 = 128
@@ -77,8 +77,9 @@ num_filters_conv9 = 128
 
 filter_size_conv10 = 3
 num_filters_conv10 = 128
+'''
 
-fc1_layer_size = 128 #128
+fc1_layer_size = 64 #128
 
 def create_weights(shape):
     return tf.Variable(tf.truncated_normal(shape, stddev=0.05))
@@ -162,7 +163,7 @@ layer_conv3= create_convolutional_layer(input=layer_conv2,
                num_input_channels=num_filters_conv2,
                conv_filter_size=filter_size_conv3,
                num_filters=num_filters_conv3)
-
+'''
 layer_conv4 = create_convolutional_layer(input=layer_conv3,
 	       num_input_channels=num_filters_conv3,
 	       conv_filter_size=filter_size_conv4,
@@ -198,8 +199,8 @@ layer_conv10 = create_convolutional_layer(input=layer_conv9,
 	       num_input_channels=num_filters_conv9,
 	       conv_filter_size=filter_size_conv10,
 	       num_filters=num_filters_conv10)
-
-layer_flat = create_flatten_layer(layer_conv10)
+'''
+layer_flat = create_flatten_layer(layer_conv3)
 
 layer_fc1 = create_fc_layer(input=layer_flat,
                      num_inputs=layer_flat.get_shape()[1:4].num_elements(),
@@ -259,9 +260,10 @@ def train(num_iteration):
             
             show_progress(epoch, feed_dict_tr, feed_dict_val, val_loss)    
             saver.save(session, "models/test_model"+"_"+str(i)+".ckpt")
-            print(int(i))
+            num = 
+            print(int(r))
 
-    print(int(num_iteration))
+    #print(int(num_iteration))
     total_iterations += num_iteration
 
 train(num_iteration=40000)
