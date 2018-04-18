@@ -93,7 +93,6 @@ g = session.run(layer_conv1, feed_dict=feed_dict_tr)
 
 def vis_conv(v,ix,iy,ch,cy,cx, p = 0):
     v = np.reshape(v,(iy,ix,ch))
-    print("test")
     ix += 2
     iy += 2
     npad = ((1,1), (1,1), (0,0))
