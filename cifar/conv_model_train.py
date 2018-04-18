@@ -54,7 +54,7 @@ filter_size_conv2 = 3
 num_filters_conv2 = 64
 
 filter_size_conv3 = 3
-num_filters_conv3 = 64 #64
+num_filters_conv3 = 128 #64
 '''
 # added
 filter_size_conv4 = 3
@@ -79,7 +79,12 @@ filter_size_conv10 = 3
 num_filters_conv10 = 128
 '''
 
-fc1_layer_size = 64 #128
+fc1_layer_size = 128 #128
+
+def relu_with_random(x):
+    r = tf.random_uniform(shape=tf.shape(x), minval=0, maxval=25)
+    out = tf.nn.relu(x+r)
+    return out
 
 def create_weights(shape):
     return tf.Variable(tf.truncated_normal(shape, stddev=0.05))
@@ -88,6 +93,34 @@ def create_biases(size):
     return tf.Variable(tf.constant(0.05, shape=[size]))
 
 
+
+def create_convolutional_layer_with_random(input,
+               num_input_channels, 
+               conv_filter_size,        
+               num_filters):  
+    
+    ## We shall define the weights that will be trained using create_weights function.
+    weights = create_weights(shape=[conv_filter_size, conv_filter_size, num_input_channels, num_filters])
+    ## We create biases using the create_biases function. These are also trained.
+    biases = create_biases(num_filters)
+
+    ## Creating the convolutional layer
+    layer = tf.nn.conv2d(input=input,
+                     filter=weights,
+                     strides=[1, 1, 1, 1],
+                     padding='SAME')
+
+    layer += biases
+
+    ## We shall be using max-pooling.  
+    layer = tf.nn.max_pool(value=layer,
+                            ksize=[1, 2, 2, 1],
+                            strides=[1, 2, 2, 1],
+                            padding='SAME')
+    ## Output of pooling is fed to Relu which is the activation function for us.
+    layer = relu_with_random(layer)
+
+    return layer
 
 def create_convolutional_layer(input,
                num_input_channels, 
@@ -116,8 +149,7 @@ def create_convolutional_layer(input,
     layer = tf.nn.relu(layer)
 
     return layer
-
-    
+   
 
 def create_flatten_layer(layer):
     #We know that the shape of the layer will be [batch_size img_size img_size num_channels] 
@@ -149,11 +181,31 @@ def create_fc_layer(input,
 
     return layer
 
+# "unrolling" first layer so we can access individual variables
 
+layer_conv1_weights = tf.Variable(tf.truncated_normal(name="layer_conv1_weights", 
+                                        shape=[filter_size_conv1, filter_size_conv1, num_channels, num_filters_conv1], 
+                                        stddev=0.05))
+layer_conv1_bias = tf.Variable(tf.constant(name="layer_conv1_bias", value=0.05, shape=[num_filters_conv1]))
+
+out_layer_conv1 = tf.nn.conv2d(input=x,
+                     filter=layer_conv1_weights,
+                     strides=[1, 1, 1, 1],
+                     padding='SAME')
+out_layer_conv1 += layer_conv1_bias
+out_layer_conv1 = tf.nn.max_pool(value=out_layer_conv1,
+                            ksize=[1, 2, 2, 1],
+                            strides=[1, 2, 2, 1],
+                            padding='SAME')
+layer_conv1 = tf.nn.relu(out_layer_conv1)
+
+'''
 layer_conv1 = create_convolutional_layer(input=x,
                num_input_channels=num_channels,
                conv_filter_size=filter_size_conv1,
                num_filters=num_filters_conv1)
+'''
+
 layer_conv2 = create_convolutional_layer(input=layer_conv1,
                num_input_channels=num_filters_conv1,
                conv_filter_size=filter_size_conv2,
@@ -163,43 +215,7 @@ layer_conv3= create_convolutional_layer(input=layer_conv2,
                num_input_channels=num_filters_conv2,
                conv_filter_size=filter_size_conv3,
                num_filters=num_filters_conv3)
-'''
-layer_conv4 = create_convolutional_layer(input=layer_conv3,
-	       num_input_channels=num_filters_conv3,
-	       conv_filter_size=filter_size_conv4,
-	       num_filters=num_filters_conv4)
 
-layer_conv5 = create_convolutional_layer(input=layer_conv4,
-	       num_input_channels=num_filters_conv4,
-	       conv_filter_size=filter_size_conv5,
-	       num_filters=num_filters_conv5)
-
-layer_conv6 = create_convolutional_layer(input=layer_conv5,
-	       num_input_channels=num_filters_conv5,
-	       conv_filter_size=filter_size_conv6,
-	       num_filters=num_filters_conv6)
-
-
-layer_conv7 = create_convolutional_layer(input=layer_conv6,
-	       num_input_channels=num_filters_conv6,
-	       conv_filter_size=filter_size_conv7,
-	       num_filters=num_filters_conv7)
-
-layer_conv8 = create_convolutional_layer(input=layer_conv7,
-	       num_input_channels=num_filters_conv7,
-	       conv_filter_size=filter_size_conv8,
-	       num_filters=num_filters_conv8)
-
-layer_conv9 = create_convolutional_layer(input=layer_conv8,
-	       num_input_channels=num_filters_conv8,
-	       conv_filter_size=filter_size_conv9,
-	       num_filters=num_filters_conv9)
-
-layer_conv10 = create_convolutional_layer(input=layer_conv9,
-	       num_input_channels=num_filters_conv9,
-	       conv_filter_size=filter_size_conv10,
-	       num_filters=num_filters_conv10)
-'''
 layer_flat = create_flatten_layer(layer_conv3)
 
 layer_fc1 = create_fc_layer(input=layer_flat,
@@ -223,8 +239,9 @@ optimizer = tf.train.AdamOptimizer(learning_rate=1e-4).minimize(cost)  #1e-4
 correct_prediction = tf.equal(y_pred_cls, y_true_cls)
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
+saver = tf.train.Saver({layer_conv1_weights, layer_conv1_bias})
 
-session.run(tf.global_variables_initializer()) 
+session.run(tf.global_variables_initializer())
 
 
 def show_progress(epoch, feed_dict_train, feed_dict_validate, val_loss):
@@ -237,7 +254,6 @@ def show_progress(epoch, feed_dict_train, feed_dict_validate, val_loss):
 
 total_iterations = 0
 
-saver = tf.train.Saver()
 def train(num_iteration):
     global total_iterations
     
@@ -258,10 +274,11 @@ def train(num_iteration):
             val_loss = session.run(cost, feed_dict=feed_dict_val)
             epoch = int(i / int(data.train.num_examples/batch_size))    
             
+            num = random.randint(0,i)
             show_progress(epoch, feed_dict_tr, feed_dict_val, val_loss)    
-            saver.save(session, "models/test_model"+"_"+str(i)+".ckpt")
-            num = 
-            print(int(r))
+            saver.save(session, "models/test_model"+"_"+str(num)+".ckpt")
+            
+            print(int(num))
 
     #print(int(num_iteration))
     total_iterations += num_iteration
