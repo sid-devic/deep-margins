@@ -15,7 +15,7 @@ from tensorflow import set_random_seed
 set_random_seed(2)
 
 # iterate over everything in our train set
-batch_size = 1
+batch_size = 10000
 restore_model_id = 1260
 
 #Prepare input data
@@ -98,18 +98,42 @@ def vis_conv(v,ix,iy,ch,cy,cx, p = 0):
     npad = ((1,1), (1,1), (0,0))
     v = np.pad(v, pad_width=npad, mode='constant', constant_values=p)
     v = np.reshape(v,(iy,ix,cy,cx))
-    v = np.transpose(v,(2,0,3,1))   #cy,iy,cx,ix
-    v = np.reshape(v,(cy*iy,cx*ix))
+    v = np.transpose(v,(2,0,3,1))       #cy,iy,cx,ix reorder to C color order
+    v = np.reshape(v,(cy*iy,cx*ix))      
     return v
+
+def slice_into_imgs(v, img_size, pad, x_img):
+    '''
+    Assumes 'x_imgs' x 1 image input since vis_conv(cy=32,cx=1)
+    will output a (576,18) shape (ie, x and y num images are switched). Also assumes
+    input is NOT referring to the FIRST item in the list.
+    '''
+    shamt=(x_img-1)*pad + (x_img-1)*img_size + x_img
+    print(str(shamt) + ":" + str(shamt+img_size) + "," +  str(pad)+":" + str(pad+img_size))
+    g = v[shamt:shamt+img_size, pad:pad+img_size]        # v[1:17, 1:17]
+
+    return g
+
 
 ix = 16  # data size
 iy = 16
 ch = 32   
-cy = 4   # grid from channels:  32 = 4x8
-cx = 8
+cy = 32  # grid from channels:  32 = 4x8
+cx = 1
 
-v  = vis_conv(g,ix,iy,ch,cy,cx)
-print(v.shape)
+sliced_list=[]
+
+for output in range(0,batch_size):
+    print(str(output+1) + '/' + str(batch_size))
+    v  = vis_conv(g[output],ix,iy,ch,cy,cx)
+    print(v.shape)
+
+    for x in range(1,cy+1):
+        slice = slice_into_imgs(v, 16, 1, x)
+        sliced_list.append(slice)
+
+print(len(sliced_list))
+
 plt.figure(figsize = (8,8))
-plt.imshow(v,cmap="Greys_r",interpolation='nearest')
+plt.imshow(sliced_list[32],cmap="Greys_r",interpolation='nearest')
 plt.show()
