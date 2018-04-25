@@ -82,8 +82,9 @@ num_filters_conv10 = 128
 fc1_layer_size = 128 #128
 
 def relu_with_random(x):
-    r = tf.random_uniform(shape=tf.shape(x), minval=0, maxval=25)
-    out = tf.nn.relu(x+r)
+    r = tf.random_uniform(shape=tf.shape(x), minval=0, maxval=1)
+    x = tf.add(x,r)
+    out = tf.nn.relu(x)
     return out
 
 def create_weights(shape):
@@ -222,11 +223,14 @@ layer_fc1 = create_fc_layer(input=layer_flat,
                      num_inputs=layer_flat.get_shape()[1:4].num_elements(),
                      num_outputs=fc1_layer_size,
                      use_relu=True)
+layer_fc1 = tf.add(layer_fc1, tf.random_uniform(shape=tf.shape(layer_fc1),minval=0,maxval=1))
 
 layer_fc2 = create_fc_layer(input=layer_fc1,
                      num_inputs=fc1_layer_size,
                      num_outputs=num_classes,
                      use_relu=True)
+
+#layer_fc2 = tf.add(layer_fc2, tf.random_uniform(shape=tf.shape(layer_fc2),minval=0,maxval=.5))
 
 y_pred = tf.nn.softmax(layer_fc2,name='y_pred')
 

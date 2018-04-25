@@ -15,14 +15,13 @@ from tensorflow import set_random_seed
 set_random_seed(2)
 
 # iterate over everything in our train set
-batch_size = 10000
+batch_size = 2
 restore_model_id = 1260
 
 #Prepare input data
 classes = ['dogs','cats']
 num_classes = len(classes)
 
-# 20% of the data will automatically be used for validation
 # We've modified this so it pulls from training and testing_data respectively
 validation_size = 0
 img_size = 32
@@ -89,7 +88,7 @@ x_batch, y_true_batch, _, cls_batch = data.train.next_batch(batch_size)
 feed_dict_tr = {x: x_batch, y_true: y_true_batch}
 
 g = session.run(layer_conv1, feed_dict=feed_dict_tr)
-
+labels = y_true_batch
 
 def vis_conv(v,ix,iy,ch,cy,cx, p = 0):
     v = np.reshape(v,(iy,ix,ch))
@@ -137,3 +136,16 @@ print(len(sliced_list))
 plt.figure(figsize = (8,8))
 plt.imshow(sliced_list[32],cmap="Greys_r",interpolation='nearest')
 plt.show()
+
+print(len(labels))
+
+SAVE_DIR = "/home/sid/deep-margins/cifar/conv_out_train/"
+
+counter = 0
+for image in sliced_list:
+    for i in range(0,32):
+        # multiply by 1000 to preserve data, we divide by 1000 when we load it
+        # because np.save will round to 0
+        image = image*1000
+        image = Image.fromarray(image).astype('uint32')
+        plt.savefig()

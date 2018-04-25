@@ -45,7 +45,7 @@ def graph_all(files):
 # ------------------------------------------------------------
 
 # graph
-DIR = "/home/sid/deep-margins/cifar/logs/training_on_margins/"
+DIR = "/home/sid/deep-margins/cifar/logs/pertubations/"
 file_list = []
 os.chdir(DIR)
 for file in glob.glob("*.txt"):

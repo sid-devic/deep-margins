@@ -70,6 +70,7 @@ y_test_images = np.zeros((1, 2))
 
 cat_results = []
 dog_results = []
+
 ### Creating the feed_dict that is required to be fed to calculate y_pred 
 for i in range(len(cat_images)):
 	inputs = cat_images[i]
