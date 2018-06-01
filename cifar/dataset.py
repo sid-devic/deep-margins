@@ -121,5 +121,3 @@ def read_train_sets(train_path, val_path, image_size, classes):
   data_sets.valid = DataSet(validation_images, validation_labels, validation_img_names, validation_cls)
 
   return data_sets
-
-

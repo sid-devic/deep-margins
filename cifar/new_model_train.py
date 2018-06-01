@@ -16,7 +16,7 @@ batch_size = 256
 val_batch_size = 2000
 
 #Prepare input data
-classes = ['dogs','cats']
+classes = ['airplane', 'automobile','bird','cat','deer','dog','frog','horse','ship','truck']
 num_classes = len(classes)
 
 # 20% of the data will automatically be used for validation
@@ -24,8 +24,8 @@ num_classes = len(classes)
 validation_size = 0
 img_size = 32
 num_channels = 3
-train_path="train"
-val_path = "test"
+train_path="full_train"
+val_path = "full_val"
 
 # We shall load all the training and validation images and labels into memory using openCV and use that during training
 data = dataset.read_train_sets(train_path, val_path, img_size, classes)
@@ -95,6 +95,7 @@ def create_convolutional_layer(input,
     
     ## We shall define the weights that will be trained using create_weights function.
     weights = create_weights(shape=[conv_filter_size, conv_filter_size, num_input_channels, num_filters])
+
     ## We create biases using the create_biases function. These are also trained.
     biases = create_biases(num_filters)
 
@@ -177,7 +178,6 @@ layer_conv6 = create_convolutional_layer(input=layer_conv5,
 	       num_input_channels=num_filters_conv5,
 	       conv_filter_size=filter_size_conv6,
 	       num_filters=num_filters_conv6)
-
 
 layer_conv7 = create_convolutional_layer(input=layer_conv6,
 	       num_input_channels=num_filters_conv6,
